@@ -888,6 +888,7 @@ function initDropdownMenus() {
         if (!dropdownMenu) return;
         
         if (window.innerWidth > 968) {
+            // Desktop hover
             item.addEventListener('mouseenter', function() {
                 dropdownMenu.style.opacity = '1';
                 dropdownMenu.style.visibility = 'visible';
@@ -901,23 +902,54 @@ function initDropdownMenus() {
             });
         }
         else {
+            // Mobile click
             const mainLink = item.querySelector('a');
-            mainLink.addEventListener('click', function(e) {
+            
+            // Clone the link to remove existing event listeners
+            const newMainLink = mainLink.cloneNode(true);
+            mainLink.parentNode.replaceChild(newMainLink, mainLink);
+            
+            newMainLink.addEventListener('click', function(e) {
                 e.preventDefault();
+                e.stopPropagation();
                 
-                const isOpen = dropdownMenu.style.maxHeight && dropdownMenu.style.maxHeight !== '0px';
-                
-                document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                    menu.style.maxHeight = '0';
-                    menu.style.opacity = '0';
+                // Close all other dropdowns
+                dropdownItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        const otherMenu = otherItem.querySelector('.dropdown-menu');
+                        if (otherMenu) {
+                            otherMenu.classList.remove('active');
+                        }
+                    }
                 });
                 
-                if (!isOpen) {
-                    dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + 'px';
-                    dropdownMenu.style.opacity = '1';
-                }
+                // Toggle this dropdown
+                item.classList.toggle('active');
+                dropdownMenu.classList.toggle('active');
             });
         }
+    });
+    
+    // Re-init on window resize
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            // Reset all dropdowns on resize
+            dropdownItems.forEach(item => {
+                item.classList.remove('active');
+                const menu = item.querySelector('.dropdown-menu');
+                if (menu) {
+                    menu.classList.remove('active');
+                    if (window.innerWidth > 968) {
+                        menu.style.opacity = '';
+                        menu.style.visibility = '';
+                        menu.style.transform = '';
+                    }
+                }
+            });
+        }, 250);
     });
 }
 
