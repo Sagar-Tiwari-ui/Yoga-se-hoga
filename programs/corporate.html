@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Corporate Wellness Programs - Bring yoga and mindfulness to your workplace with Yoga of Himalayas">
+    <meta name="keywords" content="corporate yoga, workplace wellness, employee wellness programs, corporate meditation, stress management">
+    <title>Corporate Wellness Programs - Yoga of Himalayas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Page-specific styles */
+        .page-hero {
+            background: linear-gradient(135deg, rgba(45, 95, 76, 0.95) 0%, rgba(29, 63, 44, 0.9) 100%),
+                        url('../images/corporate-hero.jpg') center/cover;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(142, 68, 173, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .page-hero p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--color-cream);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            background: var(--color-beige);
+            padding: 1rem 0;
+        }
+
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-nav a {
+            color: var(--color-primary);
+            transition: var(--transition-base);
+        }
+
+        .breadcrumb-nav a:hover {
+            color: var(--color-accent-orange);
+        }
+
+        .breadcrumb-nav span {
+            color: var(--color-gray);
+        }
+
+        .intro-section {
+            padding: var(--spacing-lg) 0;
+            background: var(--gradient-section);
+        }
+
+        .intro-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .intro-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary-dark);
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-gray-dark);
+            margin-bottom: 2rem;
+        }
+
+        .benefits-section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-accent);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .benefit-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-colored);
+        }
+
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary-dark);
+        }
+
+        .benefit-card p {
+            color: var(--color-gray);
+            line-height: 1.6;
+        }
+
+        .programs-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--color-beige);
+        }
+
+        .programs-grid {
+            display: grid;
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            transition: var(--transition-base);
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .program-image {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .program-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--gradient-accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .program-content {
+            padding: 2.5rem;
+        }
+
+        .program-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary-dark);
+        }
+
+        .program-description {
+            color: var(--color-gray-dark);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .program-features {
+            list-style: none;
+            display: grid;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .program-features li {
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--color-gray-dark);
+        }
+
+        .program-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent-teal);
+            font-weight: bold;
+        }
+
+        .stats-section {
+            padding: var(--spacing-xl) 0;
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            font-family: var(--font-display);
+            margin-bottom: 0.5rem;
+            color: var(--color-secondary);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .testimonials-section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .testimonial-box::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 6rem;
+            color: var(--color-secondary-light);
+            font-family: Georgia, serif;
+            line-height: 1;
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--color-gray-dark);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            color: var(--color-primary-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--color-gray);
+            margin: 0;
+        }
+
+        .process-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--gradient-section);
+        }
+
+        .process-timeline {
+            max-width: 900px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--gradient-accent);
+        }
+
+        .process-step {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 3rem;
+        }
+
+        .process-number {
+            position: absolute;
+            left: 0;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: var(--font-display);
+            box-shadow: var(--shadow-md);
+        }
+
+        .process-step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-primary-dark);
+        }
+
+        .process-step p {
+            color: var(--color-gray-dark);
+            line-height: 1.7;
+        }
+
+        .cta-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--color-cream);
+            text-align: center;
+        }
+
+        @media (max-width: 968px) {
+            .program-card {
+                grid-template-columns: 1fr;
+            }
+
+            .program-image {
+                height: 250px;
+            }
+
+            .process-timeline::before {
+                left: 20px;
+            }
+
+            .process-step {
+                padding-left: 70px;
+            }
+
+            .process-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <span class="top-bar-item">
+                        <i class="icon-phone"></i>
+                        <a href="tel:+918272859636">+91 82728 59636</a>
+                    </span>
+                    <span class="top-bar-item">
+                        <i class="icon-email"></i>
+                        <a href="mailto:info@yogaofhimalayas.org">info@yogaofhimalayas.org</a>
+                    </span>
+                </div>
+                <div class="top-bar-right">
+                    <a href="#" class="top-bar-link">Admission</a>
+                    <a href="#" class="top-bar-link">Alumni</a>
+                    <a href="#" class="top-bar-link">Careers</a>
+                    <div class="language-selector">
+                        <select name="language" id="language">
+                            <option value="en">English</option>
+                            <option value="hi">हिंदी</option>
+                            <option value="sa">संस्कृत</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <img src="../logo.png" alt="Yoga of Himalayas Logo" onerror="this.style.display='none'">
+                        <div class="logo-text">
+                            <h1>Yoga of Himalayas</h1>
+                            <p class="tagline">योग हिमालय</p>
+                            <p class="subtitle">Ancient Wisdom • Modern Wellness</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <nav class="main-nav">
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#about">About Us</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../History/history.html">Our History</a></li>
+                                <li><a href="../History/vision.html">Vision & Mission</a></li>
+                                <li><a href="../History/faculty.html">Faculty</a></li>
+                                <li><a href="../History/facilities.html">Facilities</a></li>
+                                <li><a href="../History/accreditation.html">Accreditation</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#courses">Courses</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../courses/beginners.html">Beginner Programs</a></li>
+                                <li><a href="../courses/advanced.html">Advanced Training</a></li>
+                                <li><a href="../courses/therapy.html">Yoga Therapy</a></li>
+                                <li><a href="../courses/workshops.html">Workshops</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown active">
+                            <a href="#programs">Programs</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="residential.html">Residential Programs</a></li>
+                                <li><a href="online.html">Online Classes</a></li>
+                                <li><a href="corporate.html">Corporate Wellness</a></li>
+                                <li><a href="retreats.html">Retreats</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../index.html#gallery">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../index.html#events">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../index.html#contact">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="page-hero-content">
+                <h1>Corporate Wellness Programs</h1>
+                <p>Empower your team with yoga, mindfulness, and holistic wellness solutions</p>
+            </div>
+        </section>
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <div class="container">
+                <nav class="breadcrumb-nav">
+                    <a href="../index.html">Home</a>
+                    <span>›</span>
+                    <a href="#programs">Programs</a>
+                    <span>›</span>
+                    <span>Corporate Wellness</span>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Introduction -->
+        <section class="intro-section">
+            <div class="container">
+                <div class="intro-content">
+                    <h2>Invest in Your Team's Wellbeing</h2>
+                    <p class="intro-text">Our corporate wellness programs bring the transformative benefits of yoga and mindfulness directly to your workplace. Designed to reduce stress, improve productivity, and enhance overall employee wellbeing, our programs are customized to meet your organization's unique needs.</p>
+                    <div class="hero-buttons">
+                        <a href="#programs" class="btn btn-primary">View Programs</a>
+                        <a href="#contact" class="btn btn-outline">Request Proposal</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits -->
+        <section class="benefits-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Why Workplace Wellness Matters</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💪</div>
+                        <h3>Reduced Stress</h3>
+                        <p>Regular yoga practice significantly lowers cortisol levels and workplace stress, creating a calmer work environment</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⚡</div>
+                        <h3>Increased Productivity</h3>
+                        <p>Improved focus and mental clarity lead to better decision-making and enhanced work performance</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🏥</div>
+                        <h3>Better Health</h3>
+                        <p>Reduced sick days and healthcare costs through preventive wellness practices</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">😊</div>
+                        <h3>Enhanced Morale</h3>
+                        <p>Employees feel valued and supported, leading to higher job satisfaction and retention</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🤝</div>
+                        <h3>Team Building</h3>
+                        <p>Group sessions foster camaraderie and improve workplace relationships</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🎯</div>
+                        <h3>Better Focus</h3>
+                        <p>Meditation and breathing techniques sharpen concentration and mental agility</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" style="color: white;">Our Impact</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Corporate Clients</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">50,000+</div>
+                        <div class="stat-label">Employees Served</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">85%</div>
+                        <div class="stat-label">Stress Reduction</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">92%</div>
+                        <div class="stat-label">Satisfaction Rate</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs -->
+        <section id="programs" class="programs-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Corporate Programs</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <div class="program-image" style="background-image: linear-gradient(135deg, rgba(45, 95, 76, 0.8), rgba(212, 165, 116, 0.6)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22400%22%3E%3Crect fill=%22%23e8f5e9%22 width=%22300%22 height=%22400%22/%3E%3C/svg%3E');">
+                            <div class="program-badge">Most Popular</div>
+                        </div>
+                        <div class="program-content">
+                            <h3>Weekly Yoga Sessions</h3>
+                            <p class="program-description">Regular onsite or virtual yoga classes tailored to your team's schedule and fitness levels. Perfect for ongoing wellness maintenance.</p>
+                            <ul class="program-features">
+                                <li>1-3 sessions per week</li>
+                                <li>45-60 minute classes</li>
+                                <li>Onsite or virtual delivery</li>
+                                <li>All fitness levels welcome</li>
+                                <li>Flexible scheduling</li>
+                                <li>Professional instructors</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-primary">Get Started</a>
+                        </div>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-image" style="background-image: linear-gradient(135deg, rgba(45, 95, 76, 0.8), rgba(93, 173, 226, 0.6)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22400%22%3E%3Crect fill=%22%23e3f2fd%22 width=%22300%22 height=%22400%22/%3E%3C/svg%3E');">
+                        </div>
+                        <div class="program-content">
+                            <h3>Desk Yoga & Stress Relief</h3>
+                            <p class="program-description">Quick, effective sessions designed for busy professionals. Can be done right at the desk without changing clothes.</p>
+                            <ul class="program-features">
+                                <li>15-30 minute sessions</li>
+                                <li>No special clothing required</li>
+                                <li>Chair and standing exercises</li>
+                                <li>Stress relief techniques</li>
+                                <li>Eye strain reduction</li>
+                                <li>Posture improvement</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-primary">Get Started</a>
+                        </div>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-image" style="background-image: linear-gradient(135deg, rgba(45, 95, 76, 0.8), rgba(142, 68, 173, 0.6)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22400%22%3E%3Crect fill=%22%23f3e5f5%22 width=%22300%22 height=%22400%22/%3E%3C/svg%3E');">
+                        </div>
+                        <div class="program-content">
+                            <h3>Wellness Workshops</h3>
+                            <p class="program-description">Comprehensive workshops on stress management, mindfulness, nutrition, and holistic health practices.</p>
+                            <ul class="program-features">
+                                <li>2-4 hour workshops</li>
+                                <li>Interactive sessions</li>
+                                <li>Practical tools & techniques</li>
+                                <li>Expert facilitators</li>
+                                <li>Resource materials included</li>
+                                <li>Customizable topics</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-primary">Get Started</a>
+                        </div>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-image" style="background-image: linear-gradient(135deg, rgba(45, 95, 76, 0.8), rgba(230, 126, 34, 0.6)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22400%22%3E%3Crect fill=%22%23fff3e0%22 width=%22300%22 height=%22400%22/%3E%3C/svg%3E');">
+                        </div>
+                        <div class="program-content">
+                            <h3>Corporate Retreats</h3>
+                            <p class="program-description">Multi-day immersive wellness experiences for team building, rejuvenation, and strategic planning in serene Himalayan settings.</p>
+                            <ul class="program-features">
+                                <li>1-5 day programs</li>
+                                <li>Himalayan retreat center</li>
+                                <li>Yoga, meditation & activities</li>
+                                <li>Healthy gourmet meals</li>
+                                <li>Team building exercises</li>
+                                <li>All-inclusive packages</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-primary">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">What Companies Say</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="testimonial-grid">
+                    <div class="testimonial-box">
+                        <p class="testimonial-text">"Implementing yoga sessions has been a game-changer for our team. We've seen a 40% reduction in stress-related absences and a noticeable improvement in overall productivity. The instructors are professional and adaptable to our corporate environment."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">RS</div>
+                            <div class="author-info">
+                                <h4>Rajesh Sharma</h4>
+                                <p>HR Director, Tech Solutions Ltd.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-box">
+                        <p class="testimonial-text">"The desk yoga program is perfect for our fast-paced work environment. Employees love that they can participate without leaving their workstations. It's boosted morale and created a more positive workplace culture."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">PM</div>
+                            <div class="author-info">
+                                <h4>Priya Mehta</h4>
+                                <p>CEO, Digital Marketing Agency</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-box">
+                        <p class="testimonial-text">"Our annual corporate retreat with Yoga of Himalayas was transformative. The combination of yoga, team building, and the beautiful setting created an experience our employees still talk about. Highly recommended for team bonding."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AK</div>
+                            <div class="author-info">
+                                <h4>Amit Kumar</h4>
+                                <p>Managing Partner, Consulting Firm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="process-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Getting Started is Easy</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <div class="process-number">1</div>
+                        <h3>Initial Consultation</h3>
+                        <p>We discuss your company's needs, goals, and preferences. Our team learns about your workplace culture, employee demographics, and wellness objectives.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="process-number">2</div>
+                        <h3>Custom Proposal</h3>
+                        <p>Based on our consultation, we create a tailored program proposal including class schedules, instructor profiles, pricing, and implementation timeline.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="process-number">3</div>
+                        <h3>Program Launch</h3>
+                        <p>We handle all logistics, from employee communication to setup. Our instructors arrive prepared with all necessary equipment and materials.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="process-number">4</div>
+                        <h3>Ongoing Support</h3>
+                        <p>Regular feedback sessions ensure the program meets your goals. We adjust and optimize based on employee participation and satisfaction.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Ready to Transform Your Workplace?</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">Contact us today for a free consultation and customized proposal</p>
+                </div>
+                <div style="margin-top: 2rem;">
+                    <a href="../index.html#contact" class="btn btn-primary" style="margin-right: 1rem;">Request Proposal</a>
+                    <a href="tel:+918272859636" class="btn btn-outline">Call Us Now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h3 class="footer-title">Yoga of Himalayas</h3>
+                        <p class="footer-description">Dedicated to promoting authentic yoga education and holistic wellness in the serene Himalayan environment.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><svg width="24" height="24" fill="currentColor"><rect width="24" height="24" rx="4"/></svg></a>
+                            <a href="#" aria-label="Twitter"><svg width="24" height="24" fill="currentColor"><circle cx="12" cy="12" r="12"/></svg></a>
+                            <a href="#" aria-label="Instagram"><svg width="24" height="24" fill="currentColor"><rect width="24" height="24" rx="6"/></svg></a>
+                            <a href="#" aria-label="YouTube"><svg width="24" height="24" fill="currentColor"><rect width="24" height="24" rx="4"/></svg></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-title">Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="../index.html#about">About Us</a></li>
+                            <li><a href="../index.html#courses">Courses</a></li>
+                            <li><a href="#admission">Admissions</a></li>
+                            <li><a href="../History/faculty.html">Faculty</a></li>
+                            <li><a href="../index.html#events">Events</a></li>
+                            <li><a href="../index.html#gallery">Gallery</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-title">Programs</h3>
+                        <ul class="footer-links">
+                            <li><a href="../courses/therapy.html">Yoga Therapy</a></li>
+                            <li><a href="retreats.html">Retreats</a></li>
+                            <li><a href="online.html">Online Classes</a></li>
+                            <li><a href="corporate.html">Corporate Programs</a></li>
+                            <li><a href="../courses/workshops.html">Workshops</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-title">Resources</h3>
+                        <ul class="footer-links">
+                            <li><a href="#research">Research</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="#downloads">Downloads</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                            <li><a href="#careers">Careers</a></li>
+                            <li><a href="../index.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Yoga of Himalayas. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#privacy">Privacy Policy</a>
+                        <a href="#terms">Terms & Conditions</a>
+                        <a href="#sitemap">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <script src="app.js"></script>
+</body>
+</html>
