@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yoga Retreats in the Himalayas - Transformative wellness retreats at Yoga of Himalayas">
+    <meta name="keywords" content="yoga retreats, himalayan retreats, wellness retreats, yoga vacation, meditation retreats">
+    <title>Yoga Retreats - Yoga of Himalayas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, rgba(45, 95, 76, 0.95) 0%, rgba(29, 63, 44, 0.9) 100%), url('../images/retreat-hero.jpg') center/cover;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(93, 173, 226, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+        }
+        .page-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        .page-hero p {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--color-cream);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .breadcrumb {
+            background: var(--color-beige);
+            padding: 1rem 0;
+        }
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+        }
+        .breadcrumb-nav a {
+            color: var(--color-primary);
+            transition: var(--transition-base);
+        }
+        .breadcrumb-nav a:hover {
+            color: var(--color-accent-orange);
+        }
+        .breadcrumb-nav span {
+            color: var(--color-gray);
+        }
+        .intro-section {
+            padding: var(--spacing-lg) 0;
+            background: var(--gradient-section);
+        }
+        .intro-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .intro-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary-dark);
+        }
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-gray-dark);
+            margin-bottom: 2rem;
+        }
+        .retreats-section {
+            padding: var(--spacing-xl) 0;
+        }
+        .retreat-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 3rem;
+            transition: var(--transition-base);
+        }
+        .retreat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-colored);
+        }
+        .retreat-header {
+            position: relative;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+        }
+        .retreat-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+        }
+        .retreat-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--gradient-accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+            box-shadow: var(--shadow-md);
+        }
+        .retreat-overlay h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        .retreat-dates {
+            font-size: 1.1rem;
+            color: var(--color-secondary-light);
+            font-weight: 600;
+        }
+        .retreat-body {
+            padding: 2.5rem;
+        }
+        .retreat-description {
+            font-size: 1.1rem;
+            color: var(--color-gray-dark);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        .retreat-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .highlight-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        .highlight-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-primary-dark);
+        }
+        .highlight-content p {
+            color: var(--color-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .retreat-schedule {
+            background: var(--color-beige);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 2rem;
+        }
+        .schedule-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-primary-dark);
+        }
+        .schedule-day {
+            margin-bottom: 1.5rem;
+        }
+        .schedule-day h5 {
+            font-size: 1.1rem;
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+        }
+        .schedule-items {
+            display: grid;
+            gap: 0.5rem;
+        }
+        .schedule-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.5rem 0;
+        }
+        .schedule-time {
+            font-weight: 600;
+            color: var(--color-secondary);
+            min-width: 100px;
+        }
+        .schedule-activity {
+            color: var(--color-gray-dark);
+        }
+        .retreat-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 2px solid var(--color-gray-light);
+        }
+        .retreat-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            font-family: var(--font-display);
+        }
+        .price-details {
+            font-size: 0.9rem;
+            color: var(--color-gray);
+            margin-top: 0.25rem;
+        }
+        .includes-section {
+            padding: var(--spacing-xl) 0;
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .includes-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .includes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        .include-item {
+            text-align: center;
+        }
+        .include-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .include-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        .include-item p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin: 0;
+        }
+        @media (max-width: 968px) {
+            .retreat-header {
+                height: 300px;
+            }
+            .retreat-footer {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+            .retreat-highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <span class="top-bar-item"><i class="icon-phone"></i><a href="tel:+918272859636">+91 82728 59636</a></span>
+                    <span class="top-bar-item"><i class="icon-email"></i><a href="mailto:info@yogaofhimalayas.org">info@yogaofhimalayas.org</a></span>
+                </div>
+                <div class="top-bar-right">
+                    <a href="#" class="top-bar-link">Admission</a>
+                    <a href="#" class="top-bar-link">Alumni</a>
+                    <a href="#" class="top-bar-link">Careers</a>
+                    <div class="language-selector">
+                        <select name="language" id="language">
+                            <option value="en">English</option>
+                            <option value="hi">हिंदी</option>
+                            <option value="sa">संस्कृत</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <img src="../logo.png" alt="Yoga of Himalayas Logo" onerror="this.style.display='none'">
+                        <div class="logo-text">
+                            <h1>Yoga of Himalayas</h1>
+                            <p class="tagline">योग हिमालय</p>
+                            <p class="subtitle">Ancient Wisdom • Modern Wellness</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <nav class="main-nav">
+                    <ul class="nav-menu">
+                        <li class="nav-item"><a href="../index.html">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="#about">About Us</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../History/history.html">Our History</a></li>
+                                <li><a href="../History/vision.html">Vision & Mission</a></li>
+                                <li><a href="../History/faculty.html">Faculty</a></li>
+                                <li><a href="../History/facilities.html">Facilities</a></li>
+                                <li><a href="../History/accreditation.html">Accreditation</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#courses">Courses</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../courses/beginners.html">Beginner Programs</a></li>
+                                <li><a href="../courses/advanced.html">Advanced Training</a></li>
+                                <li><a href="../courses/therapy.html">Yoga Therapy</a></li>
+                                <li><a href="../courses/workshops.html">Workshops</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown active">
+                            <a href="#programs">Programs</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="residential.html">Residential Programs</a></li>
+                                <li><a href="online.html">Online Classes</a></li>
+                                <li><a href="corporate.html">Corporate Wellness</a></li>
+                                <li><a href="retreats.html">Retreats</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="../index.html#gallery">Gallery</a></li>
+                        <li class="nav-item"><a href="../index.html#events">Events</a></li>
+                        <li class="nav-item"><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="page-hero">
+            <div class="page-hero-content">
+                <h1>Himalayan Yoga Retreats</h1>
+                <p>Rejuvenate your mind, body, and spirit in the serene lap of the Himalayas</p>
+            </div>
+        </section>
+        <div class="breadcrumb">
+            <div class="container">
+                <nav class="breadcrumb-nav">
+                    <a href="../index.html">Home</a><span>›</span>
+                    <a href="#programs">Programs</a><span>›</span>
+                    <span>Retreats</span>
+                </nav>
+            </div>
+        </div>
+        <section class="intro-section">
+            <div class="container">
+                <div class="intro-content">
+                    <h2>Escape to Tranquility</h2>
+                    <p class="intro-text">Our yoga retreats offer a perfect blend of intensive practice, relaxation, and cultural immersion in the spiritual heart of the Himalayas. Disconnect from the chaos of daily life and reconnect with your inner self through yoga, meditation, and mindful living.</p>
+                    <div class="hero-buttons">
+                        <a href="#retreats" class="btn btn-primary">View Retreats</a>
+                        <a href="../index.html#contact" class="btn btn-outline">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="retreats" class="retreats-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Upcoming Retreats</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="retreat-card">
+                    <div class="retreat-header" style="background-image: linear-gradient(135deg, rgba(45, 95, 76, 0.6), rgba(212, 165, 116, 0.4)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22400%22%3E%3Crect fill=%22%23e8f5e9%22 width=%22800%22 height=%22400%22/%3E%3C/svg%3E');">
+                        <div class="retreat-badge">Open for Booking</div>
+                        <div class="retreat-overlay">
+                            <h3>7-Day Intensive Yoga Retreat</h3>
+                            <p class="retreat-dates">📅 March 10-16, 2026</p>
+                        </div>
+                    </div>
+                    <div class="retreat-body">
+                        <p class="retreat-description">Immerse yourself in a week of transformative yoga practice, meditation, and self-discovery. This comprehensive retreat combines traditional Hatha yoga, pranayama, meditation, philosophy sessions, and cultural excursions in the peaceful Himalayan foothills.</p>
+                        <div class="retreat-highlights">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">🧘</div>
+                                <div class="highlight-content">
+                                    <h4>Daily Yoga Practice</h4>
+                                    <p>Two sessions daily including Hatha, Vinyasa, and restorative yoga</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">🍽️</div>
+                                <div class="highlight-content">
+                                    <h4>Sattvic Cuisine</h4>
+                                    <p>Healthy vegetarian meals prepared with organic local ingredients</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">🏔️</div>
+                                <div class="highlight-content">
+                                    <h4>Nature Walks</h4>
+                                    <p>Guided meditation walks through pristine Himalayan forests</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">📚</div>
+                                <div class="highlight-content">
+                                    <h4>Philosophy Sessions</h4>
+                                    <p>Evening discussions on yogic philosophy and ancient wisdom</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="retreat-schedule">
+                            <h4 class="schedule-title">Daily Schedule</h4>
+                            <div class="schedule-day">
+                                <div class="schedule-items">
+                                    <div class="schedule-item">
+                                        <div class="schedule-time">6:00 AM</div>
+                                        <div class="schedule-activity">Morning Meditation</div>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <div class="schedule-time">7:00 AM</div>
+                                        <div class="schedule-activity">Pranayama & Hatha Yoga Practice</div>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <div class="schedule-time">9:00 AM</div>
+                                        <div class="schedule-activity">Breakfast & Free Time</div>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <div class="schedule-time">11:00 AM</div>
+                                        <div class="schedule-activity">Philosophy Session or Workshop</div>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <div class="schedule-time">1:00 PM</div>
+                                        <div class="schedule-activity">Lunch & Rest</div>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <div class="schedule-time">4:00 PM</div>
+                                        <div class="schedule-activity">Afternoon Yoga or Nature Walk</div>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <div class="schedule-time">6:00 PM</div>
+                                        <div class="schedule-activity">Evening Meditation & Mantra Chanting</div>
+                                    </div>
+                                    <div class="schedule-item">
+                                        <div class="schedule-time">7:30 PM</div>
+                                        <div class="schedule-activity">Dinner & Evening Satsang</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="retreat-footer">
+                            <div>
+                                <div class="retreat-price">₹45,000</div>
+                                <p class="price-details">Per person | All-inclusive</p>
+                            </div>
+                            <a href="../index.html#contact" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="retreat-card">
+                    <div class="retreat-header" style="background-image: linear-gradient(135deg, rgba(45, 95, 76, 0.6), rgba(93, 173, 226, 0.4)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22400%22%3E%3Crect fill=%22%23e3f2fd%22 width=%22800%22 height=%22400%22/%3E%3C/svg%3E');">
+                        <div class="retreat-badge">Limited Spots</div>
+                        <div class="retreat-overlay">
+                            <h3>Weekend Wellness Retreat</h3>
+                            <p class="retreat-dates">📅 March 22-24, 2026</p>
+                        </div>
+                    </div>
+                    <div class="retreat-body">
+                        <p class="retreat-description">Perfect for busy professionals seeking a quick escape. This 3-day retreat focuses on stress relief, rejuvenation, and practical tools you can take back to your daily life. Includes yoga, meditation, Ayurvedic spa treatments, and healthy cuisine.</p>
+                        <div class="retreat-highlights">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">💆</div>
+                                <div class="highlight-content">
+                                    <h4>Spa Treatments</h4>
+                                    <p>Ayurvedic massage and wellness therapies included</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">😌</div>
+                                <div class="highlight-content">
+                                    <h4>Stress Relief Focus</h4>
+                                    <p>Specialized techniques for managing modern life stress</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">🎒</div>
+                                <div class="highlight-content">
+                                    <h4>Take-Home Tools</h4>
+                                    <p>Practical daily practices you can continue at home</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">👥</div>
+                                <div class="highlight-content">
+                                    <h4>Small Group</h4>
+                                    <p>Maximum 15 participants for personalized attention</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="retreat-footer">
+                            <div>
+                                <div class="retreat-price">₹18,000</div>
+                                <p class="price-details">Per person | All-inclusive</p>
+                            </div>
+                            <a href="../index.html#contact" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="includes-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" style="color: white;">All Retreats Include</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="includes-grid">
+                    <div class="include-item">
+                        <div class="include-icon">🏡</div>
+                        <h4>Accommodation</h4>
+                        <p>Comfortable rooms with mountain views</p>
+                    </div>
+                    <div class="include-item">
+                        <div class="include-icon">🍽️</div>
+                        <h4>All Meals</h4>
+                        <p>Three healthy vegetarian meals daily</p>
+                    </div>
+                    <div class="include-item">
+                        <div class="include-icon">👨‍🏫</div>
+                        <h4>Expert Instruction</h4>
+                        <p>Guidance from experienced yoga masters</p>
+                    </div>
+                    <div class="include-item">
+                        <div class="include-icon">📚</div>
+                        <h4>Course Materials</h4>
+                        <p>Handouts and practice resources</p>
+                    </div>
+                    <div class="include-item">
+                        <div class="include-icon">🎁</div>
+                        <h4>Welcome Kit</h4>
+                        <p>Yoga mat, water bottle, and more</p>
+                    </div>
+                    <div class="include-item">
+                        <div class="include-icon">🏆</div>
+                        <h4>Certificate</h4>
+                        <p>Certificate of completion</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="intro-section" style="background: var(--color-cream);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Ready for Your Retreat?</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">Book your spot today - Limited availability</p>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="../index.html#contact" class="btn btn-primary" style="margin-right: 1rem;">Reserve Your Spot</a>
+                    <a href="tel:+918272859636" class="btn btn-outline">Call for Details</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h3 class="footer-title">Yoga of Himalayas</h3>
+                        <p class="footer-description">Dedicated to promoting authentic yoga education and holistic wellness in the serene Himalayan environment.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><svg width="24" height="24" fill="currentColor"><rect width="24" height="24" rx="4"/></svg></a>
+                            <a href="#" aria-label="Twitter"><svg width="24" height="24" fill="currentColor"><circle cx="12" cy="12" r="12"/></svg></a>
+                            <a href="#" aria-label="Instagram"><svg width="24" height="24" fill="currentColor"><rect width="24" height="24" rx="6"/></svg></a>
+                            <a href="#" aria-label="YouTube"><svg width="24" height="24" fill="currentColor"><rect width="24" height="24" rx="4"/></svg></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-title">Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="../index.html#about">About Us</a></li>
+                            <li><a href="../index.html#courses">Courses</a></li>
+                            <li><a href="#admission">Admissions</a></li>
+                            <li><a href="../History/faculty.html">Faculty</a></li>
+                            <li><a href="../index.html#events">Events</a></li>
+                            <li><a href="../index.html#gallery">Gallery</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-title">Programs</h3>
+                        <ul class="footer-links">
+                            <li><a href="../courses/therapy.html">Yoga Therapy</a></li>
+                            <li><a href="retreats.html">Retreats</a></li>
+                            <li><a href="online.html">Online Classes</a></li>
+                            <li><a href="corporate.html">Corporate Programs</a></li>
+                            <li><a href="../courses/workshops.html">Workshops</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-title">Resources</h3>
+                        <ul class="footer-links">
+                            <li><a href="#research">Research</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="#downloads">Downloads</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                            <li><a href="#careers">Careers</a></li>
+                            <li><a href="../index.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Yoga of Himalayas. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#privacy">Privacy Policy</a>
+                        <a href="#terms">Terms & Conditions</a>
+                        <a href="#sitemap">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+    <script src="app.js"></script>
+</body>
+</html>
