@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet our experienced yoga faculty at Yoga of Himalayas - Expert instructors dedicated to authentic yoga education">
+    <meta name="keywords" content="yoga faculty, yoga instructors, yoga teachers, C. S. Pandey, yoga masters">
+    <title>Our Faculty - Yoga of Himalayas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles specific to faculty page */
+        .page-hero {
+            background: linear-gradient(135deg, rgba(45, 95, 76, 0.95) 0%, rgba(29, 63, 44, 0.9) 100%),
+                        url('../images/faculty-hero.jpg') center/cover;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-hero p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--color-cream);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            background: var(--color-beige);
+            padding: 1rem 0;
+        }
+
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-nav a {
+            color: var(--color-primary);
+            transition: var(--transition-base);
+        }
+
+        .breadcrumb-nav a:hover {
+            color: var(--color-accent-orange);
+        }
+
+        .breadcrumb-nav span {
+            color: var(--color-gray);
+        }
+
+        .faculty-intro {
+            padding: var(--spacing-lg) 0;
+            background: var(--gradient-section);
+        }
+
+        .intro-text {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-gray-dark);
+        }
+
+        /* Featured Faculty Section */
+        .featured-faculty {
+            padding: var(--spacing-xl) 0;
+            background: white;
+        }
+
+        .faculty-featured-card {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: start;
+            margin-bottom: 4rem;
+            background: var(--gradient-card);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .faculty-featured-image {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-colored);
+        }
+
+        .faculty-featured-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--radius-md);
+        }
+
+        .faculty-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--gradient-accent);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+            font-size: 0.85rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faculty-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-primary-dark);
+        }
+
+        .faculty-title {
+            font-size: 1.2rem;
+            color: var(--color-secondary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-body);
+        }
+
+        .faculty-bio {
+            color: var(--color-gray-dark);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .faculty-details {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-section h3 {
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .detail-section h3::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--gradient-accent);
+            border-radius: 2px;
+        }
+
+        .detail-list {
+            list-style: none;
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .detail-list li {
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--color-gray-dark);
+        }
+
+        .detail-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent-teal);
+            font-weight: bold;
+        }
+
+        .specializations {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .specialization-tag {
+            background: var(--color-beige);
+            color: var(--color-primary);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-xl);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition-base);
+        }
+
+        .specialization-tag:hover {
+            background: var(--color-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Faculty Grid */
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .faculty-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+            position: relative;
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-colored);
+        }
+
+        .faculty-image {
+            position: relative;
+            height: 320px;
+            overflow: hidden;
+        }
+
+        .faculty-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .faculty-card:hover .faculty-image img {
+            transform: scale(1.1);
+        }
+
+        .faculty-content {
+            padding: 2rem;
+        }
+
+        .faculty-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-primary-dark);
+        }
+
+        .faculty-position {
+            color: var(--color-secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .faculty-description {
+            color: var(--color-gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .faculty-specialties {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .specialty-badge {
+            background: var(--color-beige);
+            color: var(--color-primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Stats Section */
+        .faculty-stats {
+            padding: var(--spacing-lg) 0;
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faculty-stats::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-card {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            font-family: var(--font-display);
+            margin-bottom: 0.5rem;
+            color: var(--color-secondary);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .faculty-featured-card {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem;
+            }
+
+            .faculty-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faculty-info h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <span class="top-bar-item">
+                        <i class="icon-phone"></i>
+                        <a href="tel:+918272859636">+91 82728 59636</a>
+                    </span>
+                    <span class="top-bar-item">
+                        <i class="icon-email"></i>
+                        <a href="mailto:info@yogaofhimalayas.org">info@yogaofhimalayas.org</a>
+                    </span>
+                </div>
+                <div class="top-bar-right">
+                    <a href="#" class="top-bar-link">Admission</a>
+                    <a href="#" class="top-bar-link">Alumni</a>
+                    <a href="#" class="top-bar-link">Careers</a>
+                    <div class="language-selector">
+                        <select name="language" id="language">
+                            <option value="en">English</option>
+                            <option value="hi">हिंदी</option>
+                            <option value="sa">संस्कृत</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <img src="../logo.png" alt="Yoga of Himalayas Logo" onerror="this.style.display='none'">
+                        <div class="logo-text">
+                            <h1>Yoga of Himalayas</h1>
+                            <p class="tagline">योग हिमालय</p>
+                            <p class="subtitle">Ancient Wisdom • Modern Wellness</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <nav class="main-nav">
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown active">
+                            <a href="#about">About Us</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#history">Our History</a></li>
+                                <li><a href="vision.html">Vision & Mission</a></li>
+                                <li><a href="faculty.html">Faculty</a></li>
+                                <li><a href="facilities.html">Facilities</a></li>
+                                <li><a href="accreditation.html">Accreditation</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#courses">Courses</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../courses/beginners.html">Beginner Programs</a></li>
+                                <li><a href="../courses/advanced.html">Advanced Training</a></li>
+                                <li><a href="../courses/therapy.html">Yoga Therapy</a></li>
+                                <li><a href="../courses/workshops.html">Workshops</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#programs">Programs</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../programs/residential.html">Residential Programs</a></li>
+                                <li><a href="../programs/online.html">Online Classes</a></li>
+                                <li><a href="../programs/corporate.html">Corporate Wellness</a></li>
+                                <li><a href="../programs/retreats.html">Retreats</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../index.html#gallery">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../index.html#events">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../index.html#contact">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="page-hero-content">
+                <h1>Our Esteemed Faculty</h1>
+                <p>Learn from experienced masters dedicated to preserving authentic yoga traditions</p>
+            </div>
+        </section>
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <div class="container">
+                <nav class="breadcrumb-nav">
+                    <a href="../index.html">Home</a>
+                    <span>›</span>
+                    <a href="#about">About Us</a>
+                    <span>›</span>
+                    <span>Faculty</span>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Faculty Introduction -->
+        <section class="faculty-intro">
+            <div class="container">
+                <div class="intro-text">
+                    <p>At Yoga of Himalayas, our faculty comprises highly qualified and experienced yoga masters who have dedicated their lives to the practice and teaching of authentic yoga. Each instructor brings a unique blend of traditional knowledge and modern teaching methodologies, ensuring that our students receive the highest quality yoga education.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Faculty - C. S. Pandey -->
+        <section class="featured-faculty">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Director & Lead Instructor</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="faculty-featured-card">
+                    <div class="faculty-featured-image">
+                        <img src="../images/faculty-cs-pandey.jpg" alt="C. S. Pandey" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22600%22%3E%3Crect fill=%22%23e8f5e9%22 width=%22500%22 height=%22600%22/%3E%3Ctext fill=%22%234caf50%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-size=%2240%22%3EC. S. Pandey%3C/text%3E%3C/svg%3E'">
+                        <div class="faculty-badge">Director & Founder</div>
+                    </div>
+
+                    <div class="faculty-info">
+                        <h2>C. S. Pandey</h2>
+                        <p class="faculty-title">E-RYT 500, Director & Senior Yoga Master</p>
+                        
+                        <div class="faculty-bio">
+                            <p>With over 30 years of dedicated practice and teaching experience, C. S. Pandey is a renowned yoga master and the visionary founder of Yoga of Himalayas. His journey into yoga began in the sacred valleys of Rishikesh, where he studied under traditional yoga lineages and mastered various aspects of yogic sciences.</p>
+                            
+                            <p>A highly respected figure in the global yoga community, C. S. Pandey has trained thousands of yoga teachers and practitioners from around the world. His teaching style beautifully integrates ancient yogic wisdom with contemporary anatomical understanding, making the profound teachings of yoga accessible to modern practitioners.</p>
+                        </div>
+
+                        <div class="faculty-details">
+                            <div class="detail-section">
+                                <h3>Educational Qualifications</h3>
+                                <ul class="detail-list">
+                                    <li>Ph.D. in Yoga Philosophy from Sanskrit University, Varanasi</li>
+                                    <li>M.A. in Yoga Psychology from Kaivalyadhama, Lonavla</li>
+                                    <li>Advanced Diploma in Yoga Therapy from SVYASA, Bangalore</li>
+                                    <li>E-RYT 500 (Experienced Registered Yoga Teacher) - Yoga Alliance USA</li>
+                                    <li>Certificate in Yogic Sciences from Morarji Desai National Institute of Yoga</li>
+                                </ul>
+                            </div>
+
+                            <div class="detail-section">
+                                <h3>Professional Experience</h3>
+                                <ul class="detail-list">
+                                    <li>Founder & Director, Yoga of Himalayas (2000 - Present)</li>
+                                    <li>Senior Faculty, International Yoga Teacher Training Programs</li>
+                                    <li>Consultant, Ministry of AYUSH Yoga Certification Programs</li>
+                                    <li>Guest Lecturer at various universities and yoga institutions worldwide</li>
+                                    <li>Published researcher in Yoga Philosophy and Therapeutic Applications</li>
+                                </ul>
+                            </div>
+
+                            <div class="detail-section">
+                                <h3>Awards & Recognition</h3>
+                                <ul class="detail-list">
+                                    <li>Yoga Ratna Award by Indian Yoga Association (2018)</li>
+                                    <li>Excellence in Yoga Education Award (2015)</li>
+                                    <li>Traditional Yoga Master Recognition by World Yoga Council</li>
+                                    <li>Featured speaker at International Yoga Day events</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="detail-section">
+                            <h3>Areas of Specialization</h3>
+                            <div class="specializations">
+                                <span class="specialization-tag">Hatha Yoga</span>
+                                <span class="specialization-tag">Ashtanga Vinyasa</span>
+                                <span class="specialization-tag">Pranayama</span>
+                                <span class="specialization-tag">Yoga Philosophy</span>
+                                <span class="specialization-tag">Meditation</span>
+                                <span class="specialization-tag">Yoga Therapy</span>
+                                <span class="specialization-tag">Anatomy & Physiology</span>
+                                <span class="specialization-tag">Sanskrit Mantras</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Faculty Stats -->
+        <section class="faculty-stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Expert Instructors</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">Years Average Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15,000+</div>
+                        <div class="stat-label">Students Trained</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">40+</div>
+                        <div class="stat-label">Countries Represented</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Faculty Members -->
+        <section class="featured-faculty">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Senior Faculty</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">Meet our team of dedicated yoga masters</p>
+                </div>
+
+                <div class="faculty-grid">
+                    <!-- Faculty Member 1 -->
+                    <div class="faculty-card">
+                        <div class="faculty-image">
+                            <img src="../images/faculty-1.jpg" alt="Dr. Anjali Sharma" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22320%22%3E%3Crect fill=%22%23fff3e0%22 width=%22400%22 height=%22320%22/%3E%3Ctext fill=%22%23ff9800%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-size=%2224%22%3EDr. Anjali Sharma%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Dr. Anjali Sharma</h3>
+                            <p class="faculty-position">Senior Yoga Therapist</p>
+                            <p class="faculty-description">Dr. Sharma specializes in therapeutic yoga with over 20 years of experience. She holds a Ph.D. in Yoga Therapy and has helped countless students overcome chronic health conditions through specialized yoga practices.</p>
+                            <div class="faculty-specialties">
+                                <span class="specialty-badge">Yoga Therapy</span>
+                                <span class="specialty-badge">Women's Health</span>
+                                <span class="specialty-badge">Restorative Yoga</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty Member 2 -->
+                    <div class="faculty-card">
+                        <div class="faculty-image">
+                            <img src="../images/faculty-2.jpg" alt="Swami Dharmananda" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22320%22%3E%3Crect fill=%22%23e3f2fd%22 width=%22400%22 height=%22320%22/%3E%3Ctext fill=%22%232196f3%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-size=%2224%22%3ESwami Dharmananda%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Swami Dharmananda</h3>
+                            <p class="faculty-position">Meditation & Philosophy Expert</p>
+                            <p class="faculty-description">A revered monk and scholar, Swami Dharmananda brings profound knowledge of yoga philosophy and meditation. His teachings illuminate the spiritual dimensions of yoga practice with clarity and wisdom.</p>
+                            <div class="faculty-specialties">
+                                <span class="specialty-badge">Meditation</span>
+                                <span class="specialty-badge">Philosophy</span>
+                                <span class="specialty-badge">Sanskrit</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty Member 3 -->
+                    <div class="faculty-card">
+                        <div class="faculty-image">
+                            <img src="../images/faculty-3.jpg" alt="Rajesh Kumar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22320%22%3E%3Crect fill=%22%23f3e5f5%22 width=%22400%22 height=%22320%22/%3E%3Ctext fill=%22%239c27b0%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-size=%2224%22%3ERajesh Kumar%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Rajesh Kumar</h3>
+                            <p class="faculty-position">Ashtanga Yoga Specialist</p>
+                            <p class="faculty-description">Trained in the traditional Ashtanga Vinyasa lineage, Rajesh brings dynamic energy and precision to his teaching. His classes challenge students while honoring the authentic practice methodology.</p>
+                            <div class="faculty-specialties">
+                                <span class="specialty-badge">Ashtanga Vinyasa</span>
+                                <span class="specialty-badge">Vinyasa Flow</span>
+                                <span class="specialty-badge">Alignment</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty Member 4 -->
+                    <div class="faculty-card">
+                        <div class="faculty-image">
+                            <img src="../images/faculty-4.jpg" alt="Priya Devi" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22320%22%3E%3Crect fill=%22%23fce4ec%22 width=%22400%22 height=%22320%22/%3E%3Ctext fill=%22%23e91e63%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-size=%2224%22%3EPriya Devi%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Priya Devi</h3>
+                            <p class="faculty-position">Pranayama & Kriya Expert</p>
+                            <p class="faculty-description">Master of breath work and purification techniques, Priya guides students through transformative pranayama practices. Her expertise in traditional kriyas enhances overall well-being and spiritual growth.</p>
+                            <div class="faculty-specialties">
+                                <span class="specialty-badge">Pranayama</span>
+                                <span class="specialty-badge">Kriya Yoga</span>
+                                <span class="specialty-badge">Breathwork</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty Member 5 -->
+                    <div class="faculty-card">
+                        <div class="faculty-image">
+                            <img src="../images/faculty-5.jpg" alt="Dr. Vikram Singh" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22320%22%3E%3Crect fill=%22%23fff9c4%22 width=%22400%22 height=%22320%22/%3E%3Ctext fill=%22%23f57f17%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-size=%2224%22%3EDr. Vikram Singh%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Dr. Vikram Singh</h3>
+                            <p class="faculty-position">Anatomy & Kinesiology Specialist</p>
+                            <p class="faculty-description">With a background in sports medicine and yoga, Dr. Singh teaches the scientific aspects of yoga practice. His anatomical insights help students practice safely and effectively.</p>
+                            <div class="faculty-specialties">
+                                <span class="specialty-badge">Anatomy</span>
+                                <span class="specialty-badge">Biomechanics</span>
+                                <span class="specialty-badge">Injury Prevention</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty Member 6 -->
+                    <div class="faculty-card">
+                        <div class="faculty-image">
+                            <img src="../images/faculty-6.jpg" alt="Meera Nair" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22320%22%3E%3Crect fill=%22%23e8f5e9%22 width=%22400%22 height=%22320%22/%3E%3Ctext fill=%22%234caf50%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-size=%2224%22%3EMeera Nair%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="faculty-content">
+                            <h3 class="faculty-name">Meera Nair</h3>
+                            <p class="faculty-position">Yin Yoga & Mindfulness Teacher</p>
+                            <p class="faculty-description">Meera's gentle approach to Yin Yoga and mindfulness creates a nurturing space for deep healing. Her classes emphasize the meditative and restorative aspects of yoga practice.</p>
+                            <div class="faculty-specialties">
+                                <span class="specialty-badge">Yin Yoga</span>
+                                <span class="specialty-badge">Mindfulness</span>
+                                <span class="specialty-badge">Stress Relief</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="faculty-intro" style="background: var(--color-cream);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Join Our Next Program</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">Learn from the best and transform your practice</p>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="../index.html#courses" class="btn btn-primary" style="margin-right: 1rem;">View Courses</a>
+                    <a href="../index.html#contact" class="btn btn-outline">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h3 class="footer-title">Yoga of Himalayas</h3>
+                        <p class="footer-description">Dedicated to promoting authentic yoga education and holistic wellness in the serene Himalayan environment.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><svg width="24" height="24" fill="currentColor"><rect width="24" height="24" rx="4"/></svg></a>
+                            <a href="#" aria-label="Twitter"><svg width="24" height="24" fill="currentColor"><circle cx="12" cy="12" r="12"/></svg></a>
+                            <a href="#" aria-label="Instagram"><svg width="24" height="24" fill="currentColor"><rect width="24" height="24" rx="6"/></svg></a>
+                            <a href="#" aria-label="YouTube"><svg width="24" height="24" fill="currentColor"><rect width="24" height="24" rx="4"/></svg></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-title">Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="../index.html#about">About Us</a></li>
+                            <li><a href="../index.html#courses">Courses</a></li>
+                            <li><a href="#admission">Admissions</a></li>
+                            <li><a href="faculty.html">Faculty</a></li>
+                            <li><a href="../index.html#events">Events</a></li>
+                            <li><a href="../index.html#gallery">Gallery</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-title">Programs</h3>
+                        <ul class="footer-links">
+                            <li><a href="../courses/therapy.html">Yoga Therapy</a></li>
+                            <li><a href="../programs/retreats.html">Retreats</a></li>
+                            <li><a href="../programs/online.html">Online Classes</a></li>
+                            <li><a href="../programs/corporate.html">Corporate Programs</a></li>
+                            <li><a href="../courses/workshops.html">Workshops</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-title">Resources</h3>
+                        <ul class="footer-links">
+                            <li><a href="#research">Research</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="#downloads">Downloads</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                            <li><a href="#careers">Careers</a></li>
+                            <li><a href="../index.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Yoga of Himalayas. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#privacy">Privacy Policy</a>
+                        <a href="#terms">Terms & Conditions</a>
+                        <a href="#sitemap">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        ↑
+    </button>
+
+    <script src="app.js"></script>
+</body>
+</html>
