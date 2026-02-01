@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Our History - Learn about the journey and legacy of Yoga of Himalayas">
+    <meta name="keywords" content="yoga history, yoga institute history, rishikesh yoga, himalayan yoga legacy">
+    <title>Our History - Yoga of Himalayas</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, rgba(45, 95, 76, 0.95) 0%, rgba(29, 63, 44, 0.9) 100%), url('../images/history-hero.jpg') center/cover;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+        }
+        .page-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            color: white;
+        }
+        .page-hero p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--color-cream);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .breadcrumb {
+            background: var(--color-beige);
+            padding: 1rem 0;
+        }
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+        }
+        .breadcrumb-nav a {
+            color: var(--color-primary);
+            transition: var(--transition-base);
+        }
+        .breadcrumb-nav a:hover {
+            color: var(--color-accent-orange);
+        }
+        .breadcrumb-nav span {
+            color: var(--color-gray);
+        }
+        .intro-section {
+            padding: var(--spacing-lg) 0;
+            background: var(--gradient-section);
+        }
+        .intro-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .intro-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary-dark);
+        }
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-gray-dark);
+            margin-bottom: 2rem;
+        }
+        .timeline-section {
+            padding: var(--spacing-xl) 0;
+            position: relative;
+        }
+        .timeline {
+            max-width: 1000px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-accent);
+        }
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 80px 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        .timeline-item:nth-child(even) .timeline-content:first-child {
+            order: 3;
+        }
+        .timeline-year {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+        .year-badge {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            font-family: var(--font-display);
+            box-shadow: var(--shadow-lg);
+        }
+        .timeline-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+        .timeline-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary-dark);
+        }
+        .timeline-content p {
+            color: var(--color-gray-dark);
+            line-height: 1.7;
+        }
+        .timeline-item:nth-child(odd) .timeline-content {
+            text-align: right;
+        }
+        .timeline-item:nth-child(even) .timeline-content {
+            text-align: left;
+        }
+        .milestone-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--color-beige);
+        }
+        .milestone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        .milestone-card {
+            text-align: center;
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+        }
+        .milestone-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        .milestone-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            font-family: var(--font-display);
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+        .milestone-label {
+            font-size: 1.1rem;
+            color: var(--color-gray-dark);
+            font-weight: 600;
+        }
+        .legacy-section {
+            padding: var(--spacing-xl) 0;
+        }
+        .legacy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+        .legacy-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-colored);
+        }
+        .legacy-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .legacy-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-primary-dark);
+        }
+        .legacy-text p {
+            color: var(--color-gray-dark);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        .legacy-values {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+        }
+        .legacy-values li {
+            padding-left: 2rem;
+            position: relative;
+            color: var(--color-gray-dark);
+            line-height: 1.6;
+        }
+        .legacy-values li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent-teal);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        @media (max-width: 968px) {
+            .timeline::before {
+                left: 30px;
+            }
+            .timeline-item {
+                grid-template-columns: 60px 1fr;
+                gap: 1.5rem;
+            }
+            .timeline-item:nth-child(even) .timeline-content:first-child {
+                order: 2;
+            }
+            .timeline-content:first-child {
+                display: none;
+            }
+            .timeline-content {
+                text-align: left !important;
+            }
+            .year-badge {
+                width: 60px;
+                height: 60px;
+                font-size: 1rem;
+            }
+            .legacy-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <span class="top-bar-item"><i class="icon-phone"></i><a href="tel:+918272859636">+91 82728 59636</a></span>
+                    <span class="top-bar-item"><i class="icon-email"></i><a href="mailto:info@yogaofhimalayas.org">info@yogaofhimalayas.org</a></span>
+                </div>
+                <div class="top-bar-right">
+                    <a href="#" class="top-bar-link">Admission</a>
+                    <a href="#" class="top-bar-link">Alumni</a>
+                    <a href="#" class="top-bar-link">Careers</a>
+                    <div class="language-selector">
+                        <select name="language" id="language">
+                            <option value="en">English</option>
+                            <option value="hi">हिंदी</option>
+                            <option value="sa">संस्कृत</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <img src="../logo.png" alt="Yoga of Himalayas Logo" onerror="this.style.display='none'">
+                        <div class="logo-text">
+                            <h1>Yoga of Himalayas</h1>
+                            <p class="tagline">योग हिमालय</p>
+                            <p class="subtitle">Ancient Wisdom • Modern Wellness</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <nav class="main-nav">
+                    <ul class="nav-menu">
+                        <li class="nav-item"><a href="../index.html">Home</a></li>
+                        <li class="nav-item dropdown active">
+                            <a href="#about">About Us</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="history.html">Our History</a></li>
+                                <li><a href="vision.html">Vision & Mission</a></li>
+                                <li><a href="faculty.html">Faculty</a></li>
+                                <li><a href="facilities.html">Facilities</a></li>
+                                <li><a href="accreditation.html">Accreditation</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#courses">Courses</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../courses/beginners.html">Beginner Programs</a></li>
+                                <li><a href="../courses/advanced.html">Advanced Training</a></li>
+                                <li><a href="../courses/therapy.html">Yoga Therapy</a></li>
+                                <li><a href="../courses/workshops.html">Workshops</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#programs">Programs</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../programs/residential.html">Residential Programs</a></li>
+                                <li><a href="../programs/online.html">Online Classes</a></li>
+                                <li><a href="../programs/corporate.html">Corporate Wellness</a></li>
+                                <li><a href="../programs/retreats.html">Retreats</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="../index.html#gallery">Gallery</a></li>
+                        <li class="nav-item"><a href="../index.html#events">Events</a></li>
+                        <li class="nav-item"><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="page-hero">
+            <div class="page-hero-content">
+                <h1>Our History</h1>
+                <p>A legacy of authentic yoga education spanning over two decades</p>
+            </div>
+        </section>
+        <div class="breadcrumb">
+            <div class="container">
+                <nav class="breadcrumb-nav">
+                    <a href="../index.html">Home</a><span>›</span>
+                    <a href="#about">About Us</a><span>›</span>
+                    <span>Our History</span>
+                </nav>
+            </div>
+        </div>
+        <section class="intro-section">
+            <div class="container">
+                <div class="intro-content">
+                    <h2>Our Journey</h2>
+                    <p class="intro-text">Yoga of Himalayas was founded with a vision to preserve and share the authentic teachings of yoga in their purest form. What began as a small ashram in the foothills of Rishikesh has grown into one of India's most respected yoga institutions, touching the lives of thousands of students from around the world.</p>
+                </div>
+            </div>
+        </section>
+        <section class="timeline-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Timeline</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>The Beginning</h3>
+                            <p>C. S. Pandey establishes Yoga of Himalayas as a small ashram in Rishikesh, dedicated to traditional yoga teachings with just 5 students in the first batch.</p>
+                        </div>
+                        <div class="timeline-year">
+                            <div class="year-badge">2000</div>
+                        </div>
+                        <div class="timeline-content"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content"></div>
+                        <div class="timeline-year">
+                            <div class="year-badge">2005</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>International Recognition</h3>
+                            <p>First international students arrive from Europe and North America. The institute gains recognition from Yoga Alliance USA, enabling certified teacher training programs.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Campus Expansion</h3>
+                            <p>New dedicated campus opens with modern facilities including yoga halls, meditation spaces, library, and residential accommodation for 100+ students.</p>
+                        </div>
+                        <div class="timeline-year">
+                            <div class="year-badge">2010</div>
+                        </div>
+                        <div class="timeline-content"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content"></div>
+                        <div class="timeline-year">
+                            <div class="year-badge">2015</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Yoga Therapy Center</h3>
+                            <p>Launch of specialized Yoga Therapy department with certified therapists. Introduction of therapeutic programs for various health conditions.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>10,000+ Graduates</h3>
+                            <p>Milestone achievement of training over 10,000 certified yoga teachers from 50+ countries. Establishment of alumni network spanning the globe.</p>
+                        </div>
+                        <div class="timeline-year">
+                            <div class="year-badge">2018</div>
+                        </div>
+                        <div class="timeline-content"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content"></div>
+                        <div class="timeline-year">
+                            <div class="year-badge">2020</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Digital Transformation</h3>
+                            <p>Launch of comprehensive online yoga platform during pandemic, making authentic teachings accessible globally through live-streamed classes and virtual teacher trainings.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Research & Innovation</h3>
+                            <p>Establishment of Yoga Research Center in collaboration with leading universities. Publication of research papers on therapeutic applications of yoga.</p>
+                        </div>
+                        <div class="timeline-year">
+                            <div class="year-badge">2023</div>
+                        </div>
+                        <div class="timeline-content"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content"></div>
+                        <div class="timeline-year">
+                            <div class="year-badge">2026</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Continuing the Legacy</h3>
+                            <p>Today, Yoga of Himalayas stands as a beacon of authentic yoga education, continuing to inspire and transform lives while staying true to traditional teachings.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="milestone-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Milestones Achieved</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="milestone-grid">
+                    <div class="milestone-card">
+                        <div class="milestone-number">26+</div>
+                        <div class="milestone-label">Years of Excellence</div>
+                    </div>
+                    <div class="milestone-card">
+                        <div class="milestone-number">15,000+</div>
+                        <div class="milestone-label">Students Trained</div>
+                    </div>
+                    <div class="milestone-card">
+                        <div class="milestone-number">60+</div>
+                        <div class="milestone-label">Countries Represented</div>
+                    </div>
+                    <div class="milestone-card">
+                        <div class="milestone-number">50+</div>
+                        <div class="milestone-label">Expert Faculty</div>
+                    </div>
+                    <div class="milestone-card">
+                        <div class="milestone-number">100+</div>
+                        <div class="milestone-label">Programs Offered</div>
+                    </div>
+                    <div class="milestone-card">
+                        <div class="milestone-number">95%</div>
+                        <div class="milestone-label">Student Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="legacy-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Legacy</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="legacy-content">
+                    <div class="legacy-image">
+                        <img src="../images/legacy.jpg" alt="Yoga of Himalayas Legacy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22%3E%3Crect fill=%22%23e8f5e9%22 width=%22600%22 height=%22400%22/%3E%3Ctext fill=%22%234caf50%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-size=%2224%22%3EOur Legacy%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="legacy-text">
+                        <h3>Building a Global Yoga Community</h3>
+                        <p>Over the past two decades, we have remained committed to our founding principles while evolving to meet the needs of modern practitioners. Our alumni have gone on to establish yoga studios, wellness centers, and educational programs in over 60 countries.</p>
+                        <p>What sets us apart is our unwavering dedication to authenticity. We don't dilute or commercialize yoga teachings. Instead, we present them in their traditional form while making them accessible and relevant to contemporary life.</p>
+                        <h4 style="font-size: 1.3rem; margin: 2rem 0 1rem; color: var(--color-primary);">Core Values Since 2000:</h4>
+                        <ul class="legacy-values">
+                            <li>Preserving authentic yogic traditions and lineage</li>
+                            <li>Providing accessible, high-quality yoga education</li>
+                            <li>Fostering a supportive, inclusive learning community</li>
+                            <li>Integrating ancient wisdom with modern science</li>
+                            <li>Promoting holistic wellbeing and conscious living</li>
+                            <li>Serving humanity through yoga seva (service)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="intro-section" style="background: var(--color-cream);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Be Part of Our Story</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">Join thousands of students who have transformed their lives through our programs</p>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="../index.html#courses" class="btn btn-primary" style="margin-right: 1rem;">Explore Programs</a>
+                    <a href="../index.html#contact" class="btn btn-outline">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h3 class="footer-title">Yoga of Himalayas</h3>
+                        <p class="footer-description">Dedicated to promoting authentic yoga education and holistic wellness in the serene Himalayan environment.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><svg width="24" height="24" fill="currentColor"><rect width="24" height="24" rx="4"/></svg></a>
+                            <a href="#" aria-label="Twitter"><svg width="24" height="24" fill="currentColor"><circle cx="12" cy="12" r="12"/></svg></a>
+                            <a href="#" aria-label="Instagram"><svg width="24" height="24" fill="currentColor"><rect width="24" height="24" rx="6"/></svg></a>
+                            <a href="#" aria-label="YouTube"><svg width="24" height="24" fill="currentColor"><rect width="24" height="24" rx="4"/></svg></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-title">Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="../index.html#about">About Us</a></li>
+                            <li><a href="../index.html#courses">Courses</a></li>
+                            <li><a href="#admission">Admissions</a></li>
+                            <li><a href="faculty.html">Faculty</a></li>
+                            <li><a href="../index.html#events">Events</a></li>
+                            <li><a href="../index.html#gallery">Gallery</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-title">Programs</h3>
+                        <ul class="footer-links">
+                            <li><a href="../courses/therapy.html">Yoga Therapy</a></li>
+                            <li><a href="../programs/retreats.html">Retreats</a></li>
+                            <li><a href="../programs/online.html">Online Classes</a></li>
+                            <li><a href="../programs/corporate.html">Corporate Programs</a></li>
+                            <li><a href="../courses/workshops.html">Workshops</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-title">Resources</h3>
+                        <ul class="footer-links">
+                            <li><a href="#research">Research</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="#downloads">Downloads</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                            <li><a href="#careers">Careers</a></li>
+                            <li><a href="../index.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Yoga of Himalayas. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#privacy">Privacy Policy</a>
+                        <a href="#terms">Terms & Conditions</a>
+                        <a href="#sitemap">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+    <script src="../app.js"></script>
+</body>
+</html>
