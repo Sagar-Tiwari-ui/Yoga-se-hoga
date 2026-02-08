@@ -213,6 +213,96 @@
         .schedule-activity {
             color: var(--color-gray-dark);
         }
+        .schedule-slider-container {
+            position: relative;
+        }
+        .schedule-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+        .schedule-nav-btn {
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: var(--transition-base);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .schedule-nav-btn:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .schedule-nav-btn:disabled {
+            background: var(--color-gray-light);
+            color: var(--color-gray);
+            cursor: not-allowed;
+            transform: none;
+        }
+        .schedule-nav-btn span {
+            font-size: 1.2rem;
+        }
+        .schedule-day-indicator {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+        .day-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--color-gray-light);
+            cursor: pointer;
+            transition: var(--transition-base);
+        }
+        .day-dot:hover {
+            background: var(--color-secondary);
+            transform: scale(1.2);
+        }
+        .day-dot.active {
+            background: var(--color-primary);
+            width: 16px;
+            height: 16px;
+        }
+        .schedule-slides {
+            position: relative;
+            overflow: hidden;
+        }
+        .schedule-slide {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .schedule-slide.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @media (max-width: 768px) {
+            .schedule-navigation {
+                flex-wrap: wrap;
+            }
+            .schedule-nav-btn {
+                font-size: 0.9rem;
+                padding: 0.6rem 1rem;
+            }
+        }
         .retreat-footer {
             display: flex;
             justify-content: space-between;
@@ -294,7 +384,7 @@
             <div class="top-bar-content">
                 <div class="top-bar-left">
                     <span class="top-bar-item"><i class="icon-phone"></i><a href="tel:+918272859636">+91 82728 59636</a></span>
-                    <span class="top-bar-item"><i class="icon-email"></i><a href="mailto:info@yogaofhimalayas.org">info@yogaofhimalayas.org</a></span>
+                    <span class="top-bar-item"><i class="icon-email"></i><a href="/cdn-cgi/l/email-protection#345d5a525b744d5b53555b525c5d595558554d55471a5b4653"><span class="__cf_email__" data-cfemail="e68f888089a69f89818789808e8f8b878a879f8795c8899481">[email&#160;protected]</span></a></span>
                 </div>
                 <div class="top-bar-right">
                     <a href="#" class="top-bar-link">Admission</a>
@@ -404,12 +494,12 @@
                     <div class="retreat-header" style="background-image: linear-gradient(135deg, rgba(45, 95, 76, 0.6), rgba(212, 165, 116, 0.4)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22400%22%3E%3Crect fill=%22%23e8f5e9%22 width=%22800%22 height=%22400%22/%3E%3C/svg%3E');">
                         <div class="retreat-badge">Open for Booking</div>
                         <div class="retreat-overlay">
-                            <h3>7-Day Intensive Yoga Retreat</h3>
-                            <p class="retreat-dates">📅 March 10-16, 2026</p>
+                            <h3>4-Day Intensive Yoga Retreat</h3>
+                            <p class="retreat-dates">📅 March 10-13, 2026</p>
                         </div>
                     </div>
                     <div class="retreat-body">
-                        <p class="retreat-description">Immerse yourself in a week of transformative yoga practice, meditation, and self-discovery. This comprehensive retreat combines traditional Hatha yoga, pranayama, meditation, philosophy sessions, and cultural excursions in the peaceful Himalayan foothills.</p>
+                        <p class="retreat-description">Immerse yourself in four transformative days of yoga practice, meditation, and self-discovery. This comprehensive retreat combines traditional Hatha yoga, pranayama, meditation, philosophy sessions, and cultural excursions in the peaceful Himalayan foothills.</p>
                         <div class="retreat-highlights">
                             <div class="highlight-item">
                                 <div class="highlight-icon">🧘</div>
@@ -441,40 +531,185 @@
                             </div>
                         </div>
                         <div class="retreat-schedule">
-                            <h4 class="schedule-title">Daily Schedule</h4>
-                            <div class="schedule-day">
-                                <div class="schedule-items">
-                                    <div class="schedule-item">
-                                        <div class="schedule-time">6:00 AM</div>
-                                        <div class="schedule-activity">Morning Meditation</div>
+                            <div class="schedule-slider-container">
+                                <div class="schedule-navigation">
+                                    <button class="schedule-nav-btn" id="prevDay" onclick="changeScheduleDay(-1)">
+                                        <span>&#10094;</span> Previous
+                                    </button>
+                                    <div class="schedule-day-indicator">
+                                        <span class="day-dot active" onclick="goToDay(0)"></span>
+                                        <span class="day-dot" onclick="goToDay(1)"></span>
+                                        <span class="day-dot" onclick="goToDay(2)"></span>
+                                        <span class="day-dot" onclick="goToDay(3)"></span>
                                     </div>
-                                    <div class="schedule-item">
-                                        <div class="schedule-time">7:00 AM</div>
-                                        <div class="schedule-activity">Pranayama & Hatha Yoga Practice</div>
+                                    <button class="schedule-nav-btn" id="nextDay" onclick="changeScheduleDay(1)">
+                                        Next <span>&#10095;</span>
+                                    </button>
+                                </div>
+                                
+                                <div class="schedule-slides">
+                                    <!-- Day 1 -->
+                                    <div class="schedule-slide active">
+                                        <h4 class="schedule-title">Schedule Day 1</h4>
+                                        <div class="schedule-day">
+                                            <div class="schedule-items">
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">6:00 AM</div>
+                                                    <div class="schedule-activity">Morning Meditation</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">7:00 AM</div>
+                                                    <div class="schedule-activity">Pranayama & Hatha Yoga Practice</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">9:00 AM</div>
+                                                    <div class="schedule-activity">Breakfast & Free Time</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">11:00 AM</div>
+                                                    <div class="schedule-activity">Philosophy Session or Workshop</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">1:00 PM</div>
+                                                    <div class="schedule-activity">Lunch & Rest</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">4:00 PM</div>
+                                                    <div class="schedule-activity">Afternoon Yoga or Nature Walk</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">6:00 PM</div>
+                                                    <div class="schedule-activity">Evening Meditation & Mantra Chanting</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">7:30 PM</div>
+                                                    <div class="schedule-activity">Dinner & Evening Satsang</div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="schedule-item">
-                                        <div class="schedule-time">9:00 AM</div>
-                                        <div class="schedule-activity">Breakfast & Free Time</div>
+                                    
+                                    <!-- Day 2 -->
+                                    <div class="schedule-slide">
+                                        <h4 class="schedule-title">Schedule Day 2</h4>
+                                        <div class="schedule-day">
+                                            <div class="schedule-items">
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">6:00 AM</div>
+                                                    <div class="schedule-activity">Morning Meditation</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">7:00 AM</div>
+                                                    <div class="schedule-activity">Pranayama & Hatha Yoga Practice</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">9:00 AM</div>
+                                                    <div class="schedule-activity">Breakfast & Free Time</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">11:00 AM</div>
+                                                    <div class="schedule-activity">Philosophy Session or Workshop</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">1:00 PM</div>
+                                                    <div class="schedule-activity">Lunch & Rest</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">4:00 PM</div>
+                                                    <div class="schedule-activity">Afternoon Yoga or Nature Walk</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">6:00 PM</div>
+                                                    <div class="schedule-activity">Evening Meditation & Mantra Chanting</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">7:30 PM</div>
+                                                    <div class="schedule-activity">Dinner & Evening Satsang</div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="schedule-item">
-                                        <div class="schedule-time">11:00 AM</div>
-                                        <div class="schedule-activity">Philosophy Session or Workshop</div>
+                                    
+                                    <!-- Day 3 -->
+                                    <div class="schedule-slide">
+                                        <h4 class="schedule-title">Schedule Day 3</h4>
+                                        <div class="schedule-day">
+                                            <div class="schedule-items">
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">6:00 AM</div>
+                                                    <div class="schedule-activity">Morning Meditation</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">7:00 AM</div>
+                                                    <div class="schedule-activity">Pranayama & Hatha Yoga Practice</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">9:00 AM</div>
+                                                    <div class="schedule-activity">Breakfast & Free Time</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">11:00 AM</div>
+                                                    <div class="schedule-activity">Philosophy Session or Workshop</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">1:00 PM</div>
+                                                    <div class="schedule-activity">Lunch & Rest</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">4:00 PM</div>
+                                                    <div class="schedule-activity">Afternoon Yoga or Nature Walk</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">6:00 PM</div>
+                                                    <div class="schedule-activity">Evening Meditation & Mantra Chanting</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">7:30 PM</div>
+                                                    <div class="schedule-activity">Dinner & Evening Satsang</div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="schedule-item">
-                                        <div class="schedule-time">1:00 PM</div>
-                                        <div class="schedule-activity">Lunch & Rest</div>
-                                    </div>
-                                    <div class="schedule-item">
-                                        <div class="schedule-time">4:00 PM</div>
-                                        <div class="schedule-activity">Afternoon Yoga or Nature Walk</div>
-                                    </div>
-                                    <div class="schedule-item">
-                                        <div class="schedule-time">6:00 PM</div>
-                                        <div class="schedule-activity">Evening Meditation & Mantra Chanting</div>
-                                    </div>
-                                    <div class="schedule-item">
-                                        <div class="schedule-time">7:30 PM</div>
-                                        <div class="schedule-activity">Dinner & Evening Satsang</div>
+                                    
+                                    <!-- Day 4 -->
+                                    <div class="schedule-slide">
+                                        <h4 class="schedule-title">Schedule Day 4</h4>
+                                        <div class="schedule-day">
+                                            <div class="schedule-items">
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">6:00 AM</div>
+                                                    <div class="schedule-activity">Morning Meditation</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">7:00 AM</div>
+                                                    <div class="schedule-activity">Pranayama & Hatha Yoga Practice</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">9:00 AM</div>
+                                                    <div class="schedule-activity">Breakfast & Free Time</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">11:00 AM</div>
+                                                    <div class="schedule-activity">Philosophy Session or Workshop</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">1:00 PM</div>
+                                                    <div class="schedule-activity">Lunch & Rest</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">4:00 PM</div>
+                                                    <div class="schedule-activity">Afternoon Yoga or Nature Walk</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">6:00 PM</div>
+                                                    <div class="schedule-activity">Evening Meditation & Mantra Chanting</div>
+                                                </div>
+                                                <div class="schedule-item">
+                                                    <div class="schedule-time">7:30 PM</div>
+                                                    <div class="schedule-activity">Dinner & Evening Satsang</div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -655,7 +890,42 @@
             </div>
         </div>
     </footer>
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
-    <script src="app.js"></script>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.schedule-slide');
+        const dots = document.querySelectorAll('.day-dot');
+        const prevBtn = document.getElementById('prevDay');
+        const nextBtn = document.getElementById('nextDay');
+        
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Show current slide
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            
+            // Update button states
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index === slides.length - 1;
+            
+            currentSlide = index;
+        }
+        
+        function changeScheduleDay(direction) {
+            let newIndex = currentSlide + direction;
+            if (newIndex >= 0 && newIndex < slides.length) {
+                showSlide(newIndex);
+            }
+        }
+        
+        function goToDay(index) {
+            showSlide(index);
+        }
+        
+        // Initialize
+        showSlide(0);
+    </script>
 </body>
 </html>
