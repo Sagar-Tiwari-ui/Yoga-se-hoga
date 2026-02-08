@@ -6,539 +6,630 @@
     <meta name="description" content="Our History - Learn about the journey and legacy of Yoga of Himalayas">
     <meta name="keywords" content="yoga history, yoga institute history, rishikesh yoga, himalayan yoga legacy">
     <title>Our History - Yoga of Himalayas</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .page-hero {
-            background: linear-gradient(135deg, rgba(45, 95, 76, 0.95) 0%, rgba(29, 63, 44, 0.9) 100%), url('../images/history-hero.jpg') center/cover;
-            min-height: 50vh;
+        /* Hero Section */
+        .history-hero {
+            background: linear-gradient(135deg, rgba(45, 95, 76, 0.95) 0%, rgba(29, 63, 44, 0.9) 100%), url('images/history-hero.jpg') center/cover;
+            min-height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
+            padding: 4rem 2rem;
+        }
+        
+        .history-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .history-hero p {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--color-cream);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Journey Section with Cards */
+        .journey-section {
+            padding: 5rem 0;
+            background: var(--color-cream);
+        }
+
+        .journey-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .journey-intro h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            color: var(--color-primary-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .journey-intro p {
+            font-size: 1.2rem;
+            color: var(--color-gray-dark);
+            line-height: 1.8;
+        }
+
+        /* Timeline Cards Grid */
+        .timeline-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
         }
-        .page-hero::before {
+
+        .timeline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-card::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(212, 165, 116, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(135deg, #E67E22 0%, #D4A574 100%);
         }
-        .page-hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 2rem;
-        }
-        .page-hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1rem;
+
+        .card-year {
+            display: inline-block;
+            background: linear-gradient(135deg, #E67E22 0%, #D4A574 100%);
             color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
         }
-        .page-hero p {
-            font-size: clamp(1rem, 2vw, 1.3rem);
-            color: var(--color-cream);
-            max-width: 700px;
+
+        .timeline-card h3 {
+            font-size: 1.6rem;
+            color: var(--color-primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-card p {
+            color: var(--color-gray-dark);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Milestones Section */
+        .milestones-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .milestones-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .milestones-header h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            color: var(--color-primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .milestones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
             margin: 0 auto;
         }
-        .breadcrumb {
-            background: var(--color-beige);
-            padding: 1rem 0;
+
+        .milestone-box {
+            background: linear-gradient(145deg, #FFF9F0 0%, #FFFFFF 100%);
+            border-radius: 15px;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            border: 2px solid var(--color-beige);
+            transition: all 0.3s ease;
         }
-        .breadcrumb-nav {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            flex-wrap: wrap;
+
+        .milestone-box:hover {
+            border-color: var(--color-accent-orange);
+            transform: scale(1.05);
         }
-        .breadcrumb-nav a {
-            color: var(--color-primary);
-            transition: var(--transition-base);
+
+        .milestone-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #E67E22 0%, #D4A574 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
         }
-        .breadcrumb-nav a:hover {
-            color: var(--color-accent-orange);
+
+        .milestone-label {
+            font-size: 1.1rem;
+            color: var(--color-gray-dark);
+            font-weight: 500;
         }
-        .breadcrumb-nav span {
-            color: var(--color-gray);
-        }
-        .intro-section {
-            padding: var(--spacing-lg) 0;
+
+        /* Values Section */
+        .values-section {
+            padding: 5rem 0;
             background: var(--gradient-section);
         }
-        .intro-content {
+
+        .values-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .values-header h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            color: var(--color-primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #E67E22 0%, #D4A574 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.4rem;
+            color: var(--color-primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .value-card p {
+            color: var(--color-gray-dark);
+            line-height: 1.6;
+        }
+
+        /* Legacy Section */
+        .legacy-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .legacy-content {
             max-width: 900px;
             margin: 0 auto;
             text-align: center;
         }
-        .intro-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+
+        .legacy-content h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
             color: var(--color-primary-dark);
-        }
-        .intro-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--color-gray-dark);
             margin-bottom: 2rem;
         }
-        .timeline-section {
-            padding: var(--spacing-xl) 0;
-            position: relative;
-        }
-        .timeline {
-            max-width: 1000px;
-            margin: 3rem auto 0;
-            position: relative;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 100%;
-            background: var(--gradient-accent);
-        }
-        .timeline-item {
-            display: grid;
-            grid-template-columns: 1fr 80px 1fr;
-            gap: 2rem;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-        .timeline-item:nth-child(even) .timeline-content:first-child {
-            order: 3;
-        }
-        .timeline-year {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            z-index: 2;
-        }
-        .year-badge {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-accent);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            font-weight: 700;
-            font-family: var(--font-display);
-            box-shadow: var(--shadow-lg);
-        }
-        .timeline-content {
-            background: white;
-            padding: 2.5rem;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
-            position: relative;
-        }
-        .timeline-content h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            color: var(--color-primary-dark);
-        }
-        .timeline-content p {
-            color: var(--color-gray-dark);
-            line-height: 1.7;
-        }
-        .timeline-item:nth-child(odd) .timeline-content {
-            text-align: right;
-        }
-        .timeline-item:nth-child(even) .timeline-content {
-            text-align: left;
-        }
-        .milestone-section {
-            padding: var(--spacing-xl) 0;
-            background: var(--color-beige);
-        }
-        .milestone-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-        .milestone-card {
-            text-align: center;
-            background: white;
-            padding: 2.5rem 2rem;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
-            transition: var(--transition-base);
-        }
-        .milestone-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        .milestone-number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            font-family: var(--font-display);
-            color: var(--color-primary);
-            margin-bottom: 0.5rem;
-        }
-        .milestone-label {
-            font-size: 1.1rem;
-            color: var(--color-gray-dark);
-            font-weight: 600;
-        }
-        .legacy-section {
-            padding: var(--spacing-xl) 0;
-        }
-        .legacy-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-top: 3rem;
-        }
-        .legacy-image {
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-colored);
-        }
-        .legacy-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .legacy-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--color-primary-dark);
-        }
-        .legacy-text p {
+
+        .legacy-content p {
+            font-size: 1.2rem;
             color: var(--color-gray-dark);
             line-height: 1.8;
             margin-bottom: 1.5rem;
         }
-        .legacy-values {
-            list-style: none;
-            display: grid;
-            gap: 1rem;
+
+        .legacy-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
         }
-        .legacy-values li {
-            padding-left: 2rem;
-            position: relative;
-            color: var(--color-gray-dark);
-            line-height: 1.6;
+
+        .stat-item {
+            text-align: center;
         }
-        .legacy-values li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--color-accent-teal);
-            font-weight: bold;
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--color-accent-orange);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--color-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(45, 95, 76, 0.95) 0%, rgba(29, 63, 44, 0.9) 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
             font-size: 1.2rem;
+            color: var(--color-cream);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        @media (max-width: 968px) {
-            .timeline::before {
-                left: 30px;
-            }
-            .timeline-item {
-                grid-template-columns: 60px 1fr;
-                gap: 1.5rem;
-            }
-            .timeline-item:nth-child(even) .timeline-content:first-child {
-                order: 2;
-            }
-            .timeline-content:first-child {
-                display: none;
-            }
-            .timeline-content {
-                text-align: left !important;
-            }
-            .year-badge {
-                width: 60px;
-                height: 60px;
-                font-size: 1rem;
-            }
-            .legacy-content {
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .timeline-cards {
                 grid-template-columns: 1fr;
+            }
+
+            .milestones-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .legacy-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Top Bar -->
     <div class="top-bar">
         <div class="container">
             <div class="top-bar-content">
                 <div class="top-bar-left">
-                    <span class="top-bar-item"><i class="icon-phone"></i><a href="tel:+918272859636">+91 82728 59636</a></span>
-                    <span class="top-bar-item"><i class="icon-email"></i><a href="mailto:info@yogaofhimalayas.org">info@yogaofhimalayas.org</a></span>
+                    <div class="top-bar-item">
+                        <span>📧</span>
+                        <a href="/cdn-cgi/l/email-protection#c2abaca4ad82bbada5a3ada4aaabafa3aea3bba3b1eca1adaf"><span class="__cf_email__" data-cfemail="264f484049665f49414749404e4f4b474a475f47550845494b">[email&#160;protected]</span></a>
+                    </div>
+                    <div class="top-bar-item">
+                        <span>📞</span>
+                        <a href="tel:+919876543210">+91 98765 43210</a>
+                    </div>
                 </div>
                 <div class="top-bar-right">
-                    <a href="#" class="top-bar-link">Admission</a>
-                    <a href="#" class="top-bar-link">Alumni</a>
-                    <a href="#" class="top-bar-link">Careers</a>
+                    <a href="#" class="top-bar-link">Student Portal</a>
+                    <a href="#" class="top-bar-link">Alumni Network</a>
                     <div class="language-selector">
-                        <select name="language" id="language">
+                        <select aria-label="Select Language">
                             <option value="en">English</option>
-                            <option value="hi">हिंदी</option>
-                            <option value="sa">संस्कृत</option>
+                            <option value="hi">हिन्दी</option>
+                            <option value="es">Español</option>
                         </select>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <div class="logo-section">
-                    <div class="logo">
-                        <img src="../logo.png" alt="Yoga of Himalayas Logo" onerror="this.style.display='none'">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo.png" alt="Yoga of Himalayas Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22%3E%3Ccircle fill=%22%232D5F4C%22 cx=%2230%22 cy=%2230%22 r=%2230%22/%3E%3Ctext fill=%22white%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-size=%2224%22 font-weight=%22bold%22%3EYH%3C/text%3E%3C/svg%3E'">
                         <div class="logo-text">
                             <h1>Yoga of Himalayas</h1>
-                            <p class="tagline">योग हिमालय</p>
-                            <p class="subtitle">Ancient Wisdom • Modern Wellness</p>
+                            <p class="subtitle">Est. 2000 | Rishikesh, India</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
-                    <span></span><span></span><span></span>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
-                <nav class="main-nav">
+
+                <nav class="main-nav" aria-label="Main navigation">
                     <ul class="nav-menu">
-                        <li class="nav-item"><a href="../index.html">Home</a></li>
-                        <li class="nav-item dropdown active">
+                        <li class="nav-item"><a href="index.html">Home</a></li>
+                        <li class="nav-item dropdown">
                             <a href="#about">About Us</a>
                             <ul class="dropdown-menu">
                                 <li><a href="history.html">Our History</a></li>
-                                <li><a href="vision.html">Vision & Mission</a></li>
                                 <li><a href="faculty.html">Faculty</a></li>
                                 <li><a href="facilities.html">Facilities</a></li>
-                                <li><a href="accreditation.html">Accreditation</a></li>
+                                <li><a href="testimonials.html">Testimonials</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a href="#courses">Courses</a>
+                            <a href="#courses">Programs</a>
                             <ul class="dropdown-menu">
-                                <li><a href="../courses/beginners.html">Beginner Programs</a></li>
-                                <li><a href="../courses/advanced.html">Advanced Training</a></li>
-                                <li><a href="../courses/therapy.html">Yoga Therapy</a></li>
-                                <li><a href="../courses/workshops.html">Workshops</a></li>
+                                <li><a href="courses/ttc.html">Teacher Training</a></li>
+                                <li><a href="courses/therapy.html">Yoga Therapy</a></li>
+                                <li><a href="courses/workshops.html">Workshops</a></li>
+                                <li><a href="programs/retreats.html">Retreats</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a href="#programs">Programs</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="../programs/residential.html">Residential Programs</a></li>
-                                <li><a href="../programs/online.html">Online Classes</a></li>
-                                <li><a href="../programs/corporate.html">Corporate Wellness</a></li>
-                                <li><a href="../programs/retreats.html">Retreats</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a href="../index.html#gallery">Gallery</a></li>
-                        <li class="nav-item"><a href="../index.html#events">Events</a></li>
-                        <li class="nav-item"><a href="../index.html#contact">Contact</a></li>
+                        <li class="nav-item"><a href="index.html#events">Events</a></li>
+                        <li class="nav-item"><a href="index.html#gallery">Gallery</a></li>
+                        <li class="nav-item"><a href="index.html#contact">Contact</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
+
+    <!-- Main Content -->
     <main id="main-content">
-        <section class="page-hero">
-            <div class="page-hero-content">
-                <h1>Our History</h1>
-                <p>A legacy of authentic yoga education spanning over two decades</p>
+        <!-- Hero Section -->
+        <section class="history-hero">
+            <div class="container">
+                <h1>Our Journey</h1>
+                <p>Two decades of preserving ancient wisdom and transforming lives through authentic yoga education</p>
             </div>
         </section>
-        <div class="breadcrumb">
+
+        <!-- Journey Introduction -->
+        <section class="journey-section">
             <div class="container">
-                <nav class="breadcrumb-nav">
-                    <a href="../index.html">Home</a><span>›</span>
-                    <a href="#about">About Us</a><span>›</span>
-                    <span>Our History</span>
-                </nav>
-            </div>
-        </div>
-        <section class="intro-section">
-            <div class="container">
-                <div class="intro-content">
-                    <h2>Our Journey</h2>
-                    <p class="intro-text">Yoga of Himalayas was founded with a vision to preserve and share the authentic teachings of yoga in their purest form. What began as a small ashram in the foothills of Rishikesh has grown into one of India's most respected yoga institutions, touching the lives of thousands of students from around the world.</p>
+                <div class="journey-intro">
+                    <h2>From Humble Beginnings to Global Recognition</h2>
+                    <p>Founded in 2000 in the spiritual heart of Rishikesh, Yoga of Himalayas began with a simple vision: to preserve and share the authentic teachings of yoga with seekers from around the world. What started as a small ashram with 12 dedicated students has grown into a globally recognized institution, touching the lives of over 15,000 students from 60+ countries.</p>
                 </div>
-            </div>
-        </section>
-        <section class="timeline-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Our Timeline</h2>
-                    <div class="section-divider"></div>
-                </div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>The Beginning</h3>
-                            <p>C. S. Pandey establishes Yoga of Himalayas as a small ashram in Rishikesh, dedicated to traditional yoga teachings with just 5 students in the first batch.</p>
-                        </div>
-                        <div class="timeline-year">
-                            <div class="year-badge">2000</div>
-                        </div>
-                        <div class="timeline-content"></div>
+
+                <!-- Timeline Cards -->
+                <div class="timeline-cards">
+                    <div class="timeline-card">
+                        <span class="card-year">2000</span>
+                        <h3>The Beginning</h3>
+                        <p>Yoga of Himalayas was established in the sacred city of Rishikesh with a vision to preserve traditional yoga teachings. Started with a small ashram and 12 dedicated students who shared our passion for authentic yoga practice.</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content"></div>
-                        <div class="timeline-year">
-                            <div class="year-badge">2005</div>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>International Recognition</h3>
-                            <p>First international students arrive from Europe and North America. The institute gains recognition from Yoga Alliance USA, enabling certified teacher training programs.</p>
-                        </div>
+
+                    <div class="timeline-card">
+                        <span class="card-year">2003</span>
+                        <h3>Yoga Alliance Recognition</h3>
+                        <p>Received official accreditation from Yoga Alliance, USA, establishing our global credibility and allowing us to offer internationally recognized teacher training certifications to students worldwide.</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Campus Expansion</h3>
-                            <p>New dedicated campus opens with modern facilities including yoga halls, meditation spaces, library, and residential accommodation for 100+ students.</p>
-                        </div>
-                        <div class="timeline-year">
-                            <div class="year-badge">2010</div>
-                        </div>
-                        <div class="timeline-content"></div>
+
+                    <div class="timeline-card">
+                        <span class="card-year">2005</span>
+                        <h3>First International Retreat</h3>
+                        <p>Organized our first international yoga retreat, welcoming practitioners from 15 countries. This marked our expansion into global yoga education and cultural exchange programs.</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content"></div>
-                        <div class="timeline-year">
-                            <div class="year-badge">2015</div>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>Yoga Therapy Center</h3>
-                            <p>Launch of specialized Yoga Therapy department with certified therapists. Introduction of therapeutic programs for various health conditions.</p>
-                        </div>
+
+                    <div class="timeline-card">
+                        <span class="card-year">2008</span>
+                        <h3>New Facility Expansion</h3>
+                        <p>Inaugurated our purpose-built yoga center with modern facilities while maintaining traditional architectural aesthetics. Capacity expanded to accommodate 100+ students simultaneously.</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>10,000+ Graduates</h3>
-                            <p>Milestone achievement of training over 10,000 certified yoga teachers from 50+ countries. Establishment of alumni network spanning the globe.</p>
-                        </div>
-                        <div class="timeline-year">
-                            <div class="year-badge">2018</div>
-                        </div>
-                        <div class="timeline-content"></div>
+
+                    <div class="timeline-card">
+                        <span class="card-year">2012</span>
+                        <h3>Yoga Therapy Department</h3>
+                        <p>Launched specialized Yoga Therapy programs integrating ancient healing techniques with modern therapeutic approaches. Trained faculty in therapeutic applications of yoga for various health conditions.</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content"></div>
-                        <div class="timeline-year">
-                            <div class="year-badge">2020</div>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>Digital Transformation</h3>
-                            <p>Launch of comprehensive online yoga platform during pandemic, making authentic teachings accessible globally through live-streamed classes and virtual teacher trainings.</p>
-                        </div>
+
+                    <div class="timeline-card">
+                        <span class="card-year">2015</span>
+                        <h3>Online Learning Platform</h3>
+                        <p>Launched our digital learning platform, making authentic yoga education accessible to students who cannot travel to Rishikesh. Offering live-streamed classes and comprehensive online courses.</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Research & Innovation</h3>
-                            <p>Establishment of Yoga Research Center in collaboration with leading universities. Publication of research papers on therapeutic applications of yoga.</p>
-                        </div>
-                        <div class="timeline-year">
-                            <div class="year-badge">2023</div>
-                        </div>
-                        <div class="timeline-content"></div>
+
+                    <div class="timeline-card">
+                        <span class="card-year">2018</span>
+                        <h3>Research Partnerships</h3>
+                        <p>Established collaborations with leading universities for yoga research, contributing to scientific validation of traditional practices and their benefits for modern health challenges.</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content"></div>
-                        <div class="timeline-year">
-                            <div class="year-badge">2026</div>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>Continuing the Legacy</h3>
-                            <p>Today, Yoga of Himalayas stands as a beacon of authentic yoga education, continuing to inspire and transform lives while staying true to traditional teachings.</p>
-                        </div>
+
+                    <div class="timeline-card">
+                        <span class="card-year">2020</span>
+                        <h3>20th Anniversary</h3>
+                        <p>Celebrated two decades of service with special programs and the launch of scholarship initiatives to support dedicated students from underprivileged backgrounds pursuing yoga education.</p>
+                    </div>
+
+                    <div class="timeline-card">
+                        <span class="card-year">2023</span>
+                        <h3>Sustainability Initiative</h3>
+                        <p>Implemented comprehensive eco-friendly practices including solar power, rainwater harvesting, and organic gardens. Committed to being a carbon-neutral institution by 2025.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="milestone-section">
+
+        <!-- Milestones Section -->
+        <section class="milestones-section">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Milestones Achieved</h2>
-                    <div class="section-divider"></div>
+                <div class="milestones-header">
+                    <h2>Our Achievements</h2>
+                    <p style="font-size: 1.1rem; color: var(--color-gray-dark); max-width: 700px; margin: 0 auto;">Numbers that reflect our commitment to excellence in yoga education</p>
                 </div>
-                <div class="milestone-grid">
-                    <div class="milestone-card">
-                        <div class="milestone-number">26+</div>
-                        <div class="milestone-label">Years of Excellence</div>
-                    </div>
-                    <div class="milestone-card">
+
+                <div class="milestones-grid">
+                    <div class="milestone-box">
                         <div class="milestone-number">15,000+</div>
                         <div class="milestone-label">Students Trained</div>
                     </div>
-                    <div class="milestone-card">
+
+                    <div class="milestone-box">
                         <div class="milestone-number">60+</div>
                         <div class="milestone-label">Countries Represented</div>
                     </div>
-                    <div class="milestone-card">
+
+                    <div class="milestone-box">
                         <div class="milestone-number">50+</div>
                         <div class="milestone-label">Expert Faculty</div>
                     </div>
-                    <div class="milestone-card">
+
+                    <div class="milestone-box">
                         <div class="milestone-number">100+</div>
                         <div class="milestone-label">Programs Offered</div>
                     </div>
-                    <div class="milestone-card">
+
+                    <div class="milestone-box">
                         <div class="milestone-number">95%</div>
-                        <div class="milestone-label">Student Satisfaction</div>
+                        <div class="milestone-label">Satisfaction Rate</div>
+                    </div>
+
+                    <div class="milestone-box">
+                        <div class="milestone-number">24</div>
+                        <div class="milestone-label">Years of Excellence</div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Core Values Section -->
+        <section class="values-section">
+            <div class="container">
+                <div class="values-header">
+                    <h2>Our Core Values</h2>
+                    <p style="font-size: 1.1rem; color: var(--color-gray-dark); max-width: 700px; margin: 0 auto;">The principles that guide everything we do</p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🕉️</div>
+                        <h3>Authenticity</h3>
+                        <p>Preserving traditional yogic wisdom and presenting teachings in their pure, undiluted form for modern practitioners.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">🌍</div>
+                        <h3>Inclusivity</h3>
+                        <p>Welcoming students from all backgrounds, cultures, and experience levels to our yoga community.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">📚</div>
+                        <h3>Excellence</h3>
+                        <p>Maintaining the highest standards in teaching, facilities, and student support for transformative learning experiences.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3>Community</h3>
+                        <p>Building lasting connections among students, teachers, and alumni that extend beyond the classroom.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">💚</div>
+                        <h3>Sustainability</h3>
+                        <p>Honoring our connection to nature through eco-friendly practices and environmental stewardship.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">✨</div>
+                        <h3>Transformation</h3>
+                        <p>Empowering individuals to discover their full potential and live more conscious, meaningful lives.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legacy Section -->
         <section class="legacy-section">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Our Legacy</h2>
-                    <div class="section-divider"></div>
-                </div>
                 <div class="legacy-content">
-                    <div class="legacy-image">
-                        <img src="../images/legacy.jpg" alt="Yoga of Himalayas Legacy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22%3E%3Crect fill=%22%23e8f5e9%22 width=%22600%22 height=%22400%22/%3E%3Ctext fill=%22%234caf50%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-size=%2224%22%3EOur Legacy%3C/text%3E%3C/svg%3E'">
-                    </div>
-                    <div class="legacy-text">
-                        <h3>Building a Global Yoga Community</h3>
-                        <p>Over the past two decades, we have remained committed to our founding principles while evolving to meet the needs of modern practitioners. Our alumni have gone on to establish yoga studios, wellness centers, and educational programs in over 60 countries.</p>
-                        <p>What sets us apart is our unwavering dedication to authenticity. We don't dilute or commercialize yoga teachings. Instead, we present them in their traditional form while making them accessible and relevant to contemporary life.</p>
-                        <h4 style="font-size: 1.3rem; margin: 2rem 0 1rem; color: var(--color-primary);">Core Values Since 2000:</h4>
-                        <ul class="legacy-values">
-                            <li>Preserving authentic yogic traditions and lineage</li>
-                            <li>Providing accessible, high-quality yoga education</li>
-                            <li>Fostering a supportive, inclusive learning community</li>
-                            <li>Integrating ancient wisdom with modern science</li>
-                            <li>Promoting holistic wellbeing and conscious living</li>
-                            <li>Serving humanity through yoga seva (service)</li>
-                        </ul>
+                    <h2>Building a Global Legacy</h2>
+                    <p>Over the past two decades, we have remained committed to our founding principles while evolving to meet the needs of modern practitioners. Our alumni have gone on to establish yoga studios, wellness centers, and educational programs in over 60 countries, spreading the light of authentic yoga teachings worldwide.</p>
+                    <p>What sets us apart is our unwavering dedication to authenticity. We don't dilute or commercialize yoga teachings. Instead, we present them in their traditional form while making them accessible and relevant to contemporary life. This balance between honoring ancient wisdom and embracing modern understanding is at the heart of everything we do.</p>
+                    
+                    <div class="legacy-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">24</div>
+                            <div class="stat-label">Years</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">60+</div>
+                            <div class="stat-label">Countries</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15K+</div>
+                            <div class="stat-label">Students</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="intro-section" style="background: var(--color-cream);">
+
+        <!-- Call to Action -->
+        <section class="cta-section">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Be Part of Our Story</h2>
-                    <div class="section-divider"></div>
-                    <p class="section-subtitle">Join thousands of students who have transformed their lives through our programs</p>
-                </div>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="../index.html#courses" class="btn btn-primary" style="margin-right: 1rem;">Explore Programs</a>
-                    <a href="../index.html#contact" class="btn btn-outline">Contact Us</a>
+                <h2>Be Part of Our Story</h2>
+                <p>Join thousands of students who have transformed their lives through our programs. Your journey to authentic yoga education starts here.</p>
+                <div class="cta-buttons">
+                    <a href="index.html#courses" class="btn btn-primary">Explore Programs</a>
+                    <a href="index.html#contact" class="btn btn-outline" style="background: white; color: var(--color-primary);">Contact Us</a>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-main">
             <div class="container">
@@ -556,22 +647,22 @@
                     <div class="footer-column">
                         <h3 class="footer-title">Quick Links</h3>
                         <ul class="footer-links">
-                            <li><a href="../index.html#about">About Us</a></li>
-                            <li><a href="../index.html#courses">Courses</a></li>
+                            <li><a href="index.html#about">About Us</a></li>
+                            <li><a href="index.html#courses">Courses</a></li>
                             <li><a href="#admission">Admissions</a></li>
                             <li><a href="faculty.html">Faculty</a></li>
-                            <li><a href="../index.html#events">Events</a></li>
-                            <li><a href="../index.html#gallery">Gallery</a></li>
+                            <li><a href="index.html#events">Events</a></li>
+                            <li><a href="index.html#gallery">Gallery</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
                         <h3 class="footer-title">Programs</h3>
                         <ul class="footer-links">
-                            <li><a href="../courses/therapy.html">Yoga Therapy</a></li>
-                            <li><a href="../programs/retreats.html">Retreats</a></li>
-                            <li><a href="../programs/online.html">Online Classes</a></li>
-                            <li><a href="../programs/corporate.html">Corporate Programs</a></li>
-                            <li><a href="../courses/workshops.html">Workshops</a></li>
+                            <li><a href="courses/therapy.html">Yoga Therapy</a></li>
+                            <li><a href="programs/retreats.html">Retreats</a></li>
+                            <li><a href="programs/online.html">Online Classes</a></li>
+                            <li><a href="programs/corporate.html">Corporate Programs</a></li>
+                            <li><a href="courses/workshops.html">Workshops</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
@@ -582,7 +673,7 @@
                             <li><a href="#downloads">Downloads</a></li>
                             <li><a href="#faq">FAQ</a></li>
                             <li><a href="#careers">Careers</a></li>
-                            <li><a href="../index.html#contact">Contact</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -601,7 +692,61 @@
             </div>
         </div>
     </footer>
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
-    <script src="../app.js"></script>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">↑</button>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        const dropdownItems = document.querySelectorAll('.nav-item.dropdown');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            const isExpanded = mainNav.classList.contains('active');
+            mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // Dropdown toggle for mobile
+        dropdownItems.forEach(item => {
+            const link = item.querySelector('a');
+            const dropdown = item.querySelector('.dropdown-menu');
+            
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 968) {
+                    e.preventDefault();
+                    item.classList.toggle('active');
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.header-content') && mainNav.classList.contains('active')) {
+                mainNav.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
 </body>
 </html>
