@@ -10,6 +10,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("CQDlhWg1954HZvUnw"); // Your public key
+        })();
+    </script>
 </head>
 <body>
     <!-- Skip to main content for accessibility -->
@@ -22,11 +29,11 @@
                 <div class="top-bar-left">
                     <span class="top-bar-item">
                         <i class="icon-phone"></i>
-                        <a href="tel:+91 8272859636">+91 82728 59636</a>
+                        <a href="tel:+918272859636">+91 82728 59636</a>
                     </span>
                     <span class="top-bar-item">
                         <i class="icon-email"></i>
-                        <a href="mailto:info@yogaofhimalayas.org">info@yogaofhimalayas.org</a>
+                        <a href="mailto:yogaofhimalayas@gmail.com">yogaofhimalayas@gmail.com</a>
                     </span>
                 </div>
                 <div class="top-bar-right">
@@ -403,7 +410,7 @@
                         <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
                         <p class="testimonial-text">"The yoga therapy program helped me overcome chronic back pain that I had for years. The personalized approach and expert guidance provided by mr. C. S. Pandey made all the difference. Highly recommend this institute to anyone serious about yoga."</p>
                         <div class="testimonial-author">
-                            <img src="images/student2.jpg" alt="Raj Patel" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Ccircle fill=%22%23ddd%22 cx=%2250%22 cy=%2250%22 r=%2250%22/%3E%3Ctext fill=%22%23999%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-size=%2240%22%3ER%3C/text%3E%3C/svg%3E'">
+                            <img src="images/student2.jpg" alt="Akash Joshi" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Ccircle fill=%22%23ddd%22 cx=%2250%22 cy=%2250%22 r=%2250%22/%3E%3Ctext fill=%22%23999%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-size=%2240%22%3ER%3C/text%3E%3C/svg%3E'">
                             <div class="author-info">
                                 <h4>Akash Joshi</h4>
                                 <p>S. D. M. Champawat</p>
@@ -549,27 +556,27 @@
                             <div class="contact-icon">📍</div>
                             <div class="contact-details">
                                 <h3>Address</h3>
-                                <p>Yoga of Himalayas Institute<br>
-                                Himalayan Foothills, Rishikesh<br>
-                                Uttarakhand, India - 249137</p>
+                                <p>Adi Advait Niketan<br>
+                                Himalayan Foothills, Champawat<br>
+                                Uttarakhand, India - 262309</p>
                             </div>
                         </div>
                         <div class="contact-info-item">
                             <div class="contact-icon">📞</div>
                             <div class="contact-details">
                                 <h3>Phone</h3>
-                                <p>Main Office: +91 123 456 7890<br>
-                                Admissions: +91 987 654 3210<br>
-                                Toll Free: 1800 123 4567</p>
+                                <p>Main Office: +91 82728 59636<br>
+                                Admissions: +91 82728 59636<br>
+                                WhatsApp: +91 82728 59636</p>
                             </div>
                         </div>
                         <div class="contact-info-item">
                             <div class="contact-icon">✉️</div>
                             <div class="contact-details">
                                 <h3>Email</h3>
-                                <p>General: info@yogaofhimalayas.org<br>
-                                Admissions: admissions@yogaofhimalayas.org<br>
-                                Support: support@yogaofhimalayas.org</p>
+                                <p>General: yogaofhimalayas@gmail.com<br>
+                                Admissions: yogaofhimalayas@gmail.com<br>
+                                Support: yogaofhimalayas@gmail.com</p>
                             </div>
                         </div>
                         <div class="contact-info-item">
@@ -586,11 +593,11 @@
                         <form class="contact-form" id="contactForm">
                             <div class="form-group">
                                 <label for="name">Full Name *</label>
-                                <input type="text" id="name" name="name" required>
+                                <input type="text" id="name" name="from_name" required>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required>
+                                <input type="email" id="email" name="from_email" required>
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone Number</label>
@@ -611,6 +618,7 @@
                                 <textarea id="message" name="message" rows="5" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Send Message</button>
+                            <div id="formStatus" style="margin-top: 15px; display: none;"></div>
                         </form>
                     </div>
                 </div>
